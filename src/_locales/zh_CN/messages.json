@@ -282,248 +282,248 @@
   },
 
   "optionTitle_google": {
-    "message": "谷歌图片",
+    "message": "谷歌搜图",
     "description": "选项的标题"
   },
 
   "optionTitle_bing": {
-    "message": "Bing Images",
-    "description": "Title of the option."
+    "message": "必应搜图",
+    "description": "选项的标题"
   },
 
   "optionTitle_yandex": {
-    "message": "Yandex.Images",
-    "description": "Title of the option."
+    "message": "Yandex搜图",
+    "description": "选项的标题"
   },
 
   "optionTitle_baidu": {
-    "message": "Baidu Image Search",
-    "description": "Title of the option."
+    "message": "百度搜图",
+    "description": "选项的标题"
   },
 
   "optionTitle_tineye": {
-    "message": "TinEye Reverse Image Search",
-    "description": "Title of the option."
+    "message": "天眼搜图",
+    "description": "选项的标题"
   },
 
   "optionTitle_sogou": {
-    "message": "Sogou Images",
-    "description": "Title of the option."
+    "message": "搜狗搜图",
+    "description": "选项的标题"
   },
 
   "optionTitle_karmaDecay": {
     "message": "Karma Decay",
-    "description": "Title of the option."
+    "description": "选项的标题"
   },
 
   "optionTitle_whatanime": {
     "message": "trace.moe",
-    "description": "Title of the option."
+    "description": "选项的标题"
   },
 
   "optionTitle_saucenao": {
     "message": "SauceNAO",
-    "description": "Title of the option."
+    "description": "选项的标题"
   },
 
   "optionTitle_iqdb": {
     "message": "Iqdb",
-    "description": "Title of the option."
+    "description": "选项的标题"
   },
 
   "optionTitle_ascii2d": {
     "message": "Ascii2d",
-    "description": "Title of the option."
+    "description": "选项的标题"
   },
 
   "optionTitle_getty": {
     "message": "Getty Images",
-    "description": "Title of the option."
+    "description": "选项的标题"
   },
 
   "optionTitle_istock": {
     "message": "iStock",
-    "description": "Title of the option."
+    "description": "选项的标题"
   },
 
   "optionTitle_shutterstock": {
     "message": "Shutterstock",
-    "description": "Title of the option."
+    "description": "选项的标题"
   },
 
   "optionTitle_adobestock": {
     "message": "Adobe Stock",
-    "description": "Title of the option."
+    "description": "选项的标题"
   },
 
   "optionTitle_depositphotos": {
     "message": "Depositphotos",
-    "description": "Title of the option."
+    "description": "选项的标题"
   },
 
   "optionTitle_pinterest": {
     "message": "Pinterest",
-    "description": "Title of the option."
+    "description": "选项的标题"
   },
 
   "optionTitle_qihoo": {
-    "message": "Qihoo 360 Images",
-    "description": "Title of the option."
+    "message": "奇虎360搜图",
+    "description": "选项的标题"
   },
 
   "optionTitle_jingdong": {
-    "message": "Jingdong",
-    "description": "Title of the option."
+    "message": "京东",
+    "description": "选项的标题"
   },
 
   "optionTitle_taobao": {
-    "message": "Taobao",
-    "description": "Title of the option."
+    "message": "淘宝",
+    "description": "选项的标题"
   },
 
   "optionTitle_alibabaChina": {
-    "message": "Alibaba",
-    "description": "Title of the option."
+    "message": "阿里巴巴",
+    "description": "选项的标题"
   },
 
   "optionTitle_mailru": {
-    "message": "Mail.ru Image Search",
-    "description": "Title of the option."
+    "message": "Mail.ru搜图",
+    "description": "选项的标题"
   },
 
   "optionTitle_searchMode": {
-    "message": "Search mode",
-    "description": "Title of the option."
+    "message": "搜索模式",
+    "description": "选项的标题"
   },
 
   "optionTitle_searchAllEngines": {
-    "message": "Search all engines",
-    "description": "Title of the option."
+    "message": "搜索所有引擎",
+    "description": "选项的标题"
   },
 
   "optionSectionTitle_toolbar": {
-    "message": "View toolbar",
-    "description": "Title of the options section."
+    "message": "查看工具栏",
+    "description": "选项部分的标题"
   },
 
   "optionValue_searchAllEnginesAction_main": {
-    "message": "From browser toolbar",
-    "description": "Value of the option."
+    "message": "从浏览器工具栏",
+    "description": "选项的价值"
   },
 
   "optionValue_searchAllEnginesAction_sub": {
-    "message": "From browser toolbar popup",
-    "description": "Value of the option."
+    "message": "从浏览器工具栏弹出",
+    "description": "选项的价值"
   },
 
   "optionValue_searchAllEnginesAction_false": {
-    "message": "Disable",
-    "description": "Value of the option."
+    "message": "禁用",
+    "description": "选项的价值"
   },
 
   "optionValue_action_searchModeAction_select": {
-    "message": "select",
-    "description": "Value of the option."
+    "message": "选择",
+    "description": "选项的价值"
   },
 
   "optionValue_action_searchModeAction_selectUpload": {
-    "message": "Select & upload",
-    "description": "Value of the option."
+    "message": "选择并上传",
+    "description": "选项的价值"
   },
 
   "optionValue_action_searchModeAction_capture": {
-    "message": "capture",
-    "description": "Value of the option."
+    "message": "捕获",
+    "description": "选项的价值"
   },
 
   "optionValue_action_searchModeAction_upload": {
-    "message": "Upload",
-    "description": "Value of the option."
+    "message": "上载",
+    "description": "选项的价值"
   },
 
   "optionValue_action_searchModeAction_url": {
     "message": "URL",
-    "description": "Value of the option."
+    "description": "选项的价值"
   },
 
   "optionValue_searchModeAction_select": {
-    "message": "select",
-    "description": "Value of the option."
+    "message": "选择",
+    "description": "选项的价值"
   },
 
   "optionValue_searchModeAction_selectUpload": {
-    "message": "Select & upload",
-    "description": "Value of the option."
+    "message": "选择并上传",
+    "description": "选项的价值"
   },
 
   "optionValue_searchModeAction_capture": {
-    "message": "capture",
-    "description": "Value of the option."
+    "message": "捕获",
+    "description": "选项的价值"
   },
 
   "optionValue_searchModeAction_upload": {
-    "message": "Upload",
-    "description": "Value of the option."
+    "message": "上载",
+    "description": "选项的价值"
   },
 
   "optionValue_searchModeAction_url": {
     "message": "URL",
-    "description": "Value of the option."
+    "description": "选项的价值"
   },
 
   "optionSectionTitle_contextmenu": {
-    "message": "Context menu",
-    "description": "Title of the options section."
+    "message": "上下文菜单",
+    "description": "选项部分的标题"
   },
 
   "optionValue_searchAllEnginesContextMenu_main": {
-    "message": "From context menu",
-    "description": "Value of the option."
+    "message": "从上下文菜单",
+    "description": "选项部分的标题"
   },
 
   "optionValue_searchAllEnginesContextMenu_sub": {
-    "message": "From submenu of context menu",
-    "description": "Value of the option."
+    "message": "从上下文菜单的子菜单",
+    "description": "选项的价值"
   },
 
   "optionValue_searchAllEnginesContextMenu_false": {
-    "message": "Disable",
-    "description": "Value of the option."
+    "message": "禁用",
+    "description": "选项的价值"
   },
 
   "optionTitle_showInContextMenu": {
-    "message": "Show in context menu",
-    "description": "Title of the option."
+    "message": "在上下文菜单中显示",
+    "description": "选项的标题"
   },
 
   "optionValue_searchModeContextMenu_select": {
-    "message": "Select",
-    "description": "Value of the option."
+    "message": "选择",
+    "description": "选项的标题"
   },
 
   "optionValue_searchModeContextMenu_selectUpload": {
-    "message": "Select & upload",
-    "description": "Value of the option."
+    "message": "选择并上传",
+    "description": "选项的价值"
   },
 
   "optionValue_searchModeContextMenu_capture": {
-    "message": "Capture",
-    "description": "Value of the option."
+    "message": "捕获",
+    "description": "选项的价值"
   },
 
   "optionSectionTitle_misc": {
-    "message": "Miscellaneous",
-    "description": "Title of the options section."
+    "message": "冗杂",
+    "description": "选项部分的标题"
   },
 
   "optionTitle_tabInBackgound": {
-    "message": "Open new tabs in the background",
-    "description": "Title of the option."
+    "message": "在后台打开新标签页",
+    "description": "选项的标题"
   },
 
   "optionTitle_localGoogle": {
-    "message": "Use local Google site",
-    "description": "Title of the option."
+    "message": "使用本地Google网站",
+    "description": "选项的标题"
   },
 
   "optionTitle_imgFullParse": {

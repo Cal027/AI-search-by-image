@@ -5153,15 +5153,6 @@ ext-components@dessant/ext-components#^0.3.0:
     "@material/switch" "^4.0.0"
     "@material/textfield" "^4.0.0"
 
-ext-contribute@dessant/ext-contribute#^0.3.0:
-  version "0.3.0"
-  resolved "https://codeload.github.com/dessant/ext-contribute/tar.gz/c017735ce88c5104a126117b7ad471d62f15ce86"
-  dependencies:
-    "@material/theme" "^4.0.0"
-    "@material/typography" "^4.0.0"
-    ext-components dessant/ext-components#^0.3.0
-    webextension-polyfill "^0.5.0"
-
 ext-list@^2.0.0:
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/ext-list/-/ext-list-2.2.2.tgz#0b98e64ed82f5acf0f2931babf69212ef52ddd37"

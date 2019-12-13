@@ -21,7 +21,6 @@ import {
   getSupportedEngines,
   getSearches,
   showNotification,
-  showContributePage,
   normalizeFilename,
   captureVisibleTabArea
 } from 'utils/app';
@@ -197,16 +196,6 @@ async function searchImage(
     );
     searchCount += 1;
     await storage.set({searchCount}, 'sync');
-    if (
-      [10, 100].includes(searchCount) &&
-      (!contribPageLastOpen ||
-        contribPageLastOpen === 1000 ||
-        contribPageLastOpen > 1512892800000)
-    ) {
-      await showContributePage('search');
-      tabIndex += 1;
-      tabActive = false;
-    }
   }
 
   const options = await storage.get(optionKeys, 'sync');

@@ -4,13 +4,6 @@
       <div class="title">{{ getText('extensionName') }}</div>
       <div class="header-buttons">
         <v-icon-button
-          class="contribute-button"
-          :ripple="false"
-          src="/src/contribute/assets/heart.svg"
-          @click="showContribute"
-        ></v-icon-button>
-
-        <v-icon-button
           class="search-mode-button"
           :ripple="false"
           :src="`/src/icons/modes/${searchModeAction}.svg`"
@@ -108,7 +101,6 @@ import {
   getOptionLabels,
   showNotification,
   validateUrl,
-  showContributePage
 } from 'utils/app';
 import {getText, isAndroid} from 'utils/common';
 import {optionKeys} from 'utils/data';
@@ -181,11 +173,6 @@ export default {
         imageUrl: this.imageUrl
       });
 
-      this.closeAction();
-    },
-
-    showContribute: async function() {
-      await showContributePage();
       this.closeAction();
     },
 
@@ -342,11 +329,6 @@ body {
   @media (max-width: 322px) {
     margin-left: 32px;
   }
-}
-
-.contribute-button {
-  margin-right: 12px;
-  @include mdc-icon-button-icon-size(24px, 24px, 8px);
 }
 
 .settings {

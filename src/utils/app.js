@@ -96,16 +96,6 @@ function getOptionLabels(data, scope = 'optionValue') {
   return labels;
 }
 
-async function showContributePage(action = false) {
-  await storage.set({contribPageLastOpen: new Date().getTime()}, 'sync');
-  const activeTab = await getActiveTab();
-  let url = browser.extension.getURL('/src/contribute/index.html');
-  if (action) {
-    url = `${url}?action=${action}`;
-  }
-  await createTab(url, {index: activeTab.index + 1});
-}
-
 function validateUrl(url) {
   if (!isString(url) || url.length > 2048) {
     return;
@@ -224,7 +214,6 @@ export {
   hasUrlSupport,
   showNotification,
   getOptionLabels,
-  showContributePage,
   validateUrl,
   normalizeFilename,
   normalizeImage,

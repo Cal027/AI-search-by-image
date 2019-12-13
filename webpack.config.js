@@ -35,7 +35,6 @@ module.exports = {
     browse: './src/browse/main.js',
     select: './src/select/main.js',
     capture: './src/capture/main.js',
-    contribute: './src/contribute/main.js',
     parse: './src/parse/main.js'
   },
   output: {
@@ -60,8 +59,7 @@ module.exports = {
               'capture',
               'upload',
               'results',
-              'confirm',
-              'contribute'
+              'confirm'
             ].includes(chunk.name);
           },
           minChunks: 2

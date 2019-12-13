@@ -105,10 +105,6 @@ gulp.task('icons', async function(done) {
     .src('src/icons/@(browse|engines|modes|misc)/*.svg', {base: '.'})
     .pipe(gulpif(isProduction, svgmin()))
     .pipe(gulp.dest(distDir));
-  gulp
-    .src('node_modules/ext-contribute/src/assets/*.svg')
-    .pipe(gulpif(isProduction, svgmin()))
-    .pipe(gulp.dest(`${distDir}/src/contribute/assets`));
   done();
 });
 
@@ -217,14 +213,6 @@ See the LICENSE file for further information.
   done();
 });
 
-gulp.task('copy', function(done) {
-  gulp
-    .src('node_modules/ext-contribute/src/assets/*.@(jpg|png)')
-    .pipe(gulp.dest(`${distDir}/src/contribute/assets`));
-  gulp.src(['src*/icons/**/*.@(jpg|png)']).pipe(gulp.dest(distDir));
-  done();
-});
-
 gulp.task(
   'build',
   gulp.series(
@@ -239,7 +227,6 @@ gulp.task(
       'manifest',
       'license'
     ),
-    'copy'
   )
 );
 

@@ -1,11 +1,11 @@
 {
   "extensionName": {
-    "message": "YOLO搜图",
+    "message": "YOLO image searcher",
     "description": "Name of the extension."
   },
 
   "extensionDescription": {
-    "message": "AI驱动的多目标识别搜图插件，支持多种方式与引擎",
+    "message": "AI-driven multi-target recognition search plugin, supports multiple methods and engines",
     "description": "Description of the extension."
   },
 
@@ -120,12 +120,12 @@
   },
 
   "engineName_allEngines": {
-    "message": "全部搜索引擎",
+    "message": "All search engines",
     "description": "Name of the search engine."
   },
 
   "actionTitle_allEngines": {
-    "message": "搜索全部引擎",
+    "message": "Search all engines",
     "description": "Title of the action."
   },
 
@@ -231,12 +231,12 @@
   },
 
   "menuItemTitle_jingdong": {
-    "message": "京东",
+    "message": "JD",
     "description": "Title of the menu item."
   },
 
   "menuItemTitle_taobao": {
-    "message": "淘宝",
+    "message": "Taobao",
     "description": "Title of the menu item."
   },
 
@@ -251,12 +251,12 @@
   },
 
   "menuItemTitle_allEngines": {
-    "message": "全部搜索引擎",
+    "message": "All search engines",
     "description": "Title of the menu item."
   },
 
   "mainMenuItemTitle_allEngines": {
-    "message": "搜索全部引擎",
+    "message": "Search all engines",
     "description": "Title of the menu item."
   },
 
@@ -272,7 +272,7 @@
   },
 
   "optionSectionTitle_engines": {
-    "message": "搜索引擎",
+    "message": "search engine",
     "description": "Title of the options section."
   },
 
@@ -377,12 +377,12 @@
   },
 
   "optionTitle_taobao": {
-    "message": "淘宝",
+    "message": "Taobao",
     "description": "Title of the option."
   },
 
   "optionTitle_alibabaChina": {
-    "message": "阿里巴巴",
+    "message": "Alibaba",
     "description": "Title of the option."
   },
 
@@ -402,7 +402,7 @@
   },
 
   "optionSectionTitle_toolbar": {
-    "message": "查看工具栏",
+    "message": "View toolbar",
     "description": "Title of the options section."
   },
 
@@ -417,27 +417,27 @@
   },
 
   "optionValue_searchAllEnginesAction_false": {
-    "message": "禁用",
+    "message": "Disable",
     "description": "Value of the option."
   },
 
   "optionValue_action_searchModeAction_select": {
-    "message": "选择",
+    "message": "select",
     "description": "Value of the option."
   },
 
   "optionValue_action_searchModeAction_selectUpload": {
-    "message": "选择&上传",
+    "message": "Select & upload",
     "description": "Value of the option."
   },
 
   "optionValue_action_searchModeAction_capture": {
-    "message": "捕获",
+    "message": "capture",
     "description": "Value of the option."
   },
 
   "optionValue_action_searchModeAction_upload": {
-    "message": "上传",
+    "message": "Upload",
     "description": "Value of the option."
   },
 
@@ -447,22 +447,22 @@
   },
 
   "optionValue_searchModeAction_select": {
-    "message": "选择",
+    "message": "select",
     "description": "Value of the option."
   },
 
   "optionValue_searchModeAction_selectUpload": {
-    "message": "选择&上传",
+    "message": "Select & upload",
     "description": "Value of the option."
   },
 
   "optionValue_searchModeAction_capture": {
-    "message": "捕获",
+    "message": "capture",
     "description": "Value of the option."
   },
 
   "optionValue_searchModeAction_upload": {
-    "message": "上传",
+    "message": "Upload",
     "description": "Value of the option."
   },
 

@@ -130,7 +130,7 @@
   },
 
   "actionTitle_engine": {
-    "message": "Search $ENGINE$ for image",
+    "message": "为这张图片选择 $ENGINE$ ",
     "description": "动作标题",
     "placeholders": {
       "engine": {
@@ -261,7 +261,7 @@
   },
 
   "mainMenuItemTitle_engine": {
-    "message": "Search $ENGINE$ for image",
+    "message": "为这张图片选择$ENGINE$",
     "description": "菜单项的标题",
     "placeholders": {
       "engine": {
@@ -527,119 +527,119 @@
   },
 
   "optionTitle_imgFullParse": {
-    "message": "Look above and below <img> elements",
-    "description": "Title of the option."
+    "message": "在 <img> 元素上方和下方查看",
+    "description": "选项的标题"
   },
 
   "dialogTitle_imageConfirmation": {
-    "message": "Select an image to search for",
-    "description": "Title of the dialog."
+    "message": "选择图片",
+    "description": "对话框的标题"
   },
 
   "snackbarMessage_imageSelection": {
-    "message": "Select an image to search for",
-    "description": "Text of the snackbar."
+    "message": "选择图片",
+    "description": "快餐栏的文本"
   },
 
   "snackbarMessage_imageCapture": {
-    "message": "Select a page area to search for",
-    "description": "Text of the snackbar."
+    "message": "选择要搜索的页面区域",
+    "description": "快餐栏的文本"
   },
 
   "buttonText_cancel": {
-    "message": "Cancel",
-    "description": "Text of the button."
+    "message": "取消",
+    "description": "按钮文字."
   },
 
   "buttonText_browse": {
-    "message": "Browse",
-    "description": "Text of the button."
+    "message": "浏览",
+    "description": "按钮文字"
   },
 
   "buttonText_search": {
-    "message": "Search",
-    "description": "Text of the button."
+    "message": "搜索",
+    "description": "按钮文字"
   },
 
   "pageContent_browse_drag": {
-    "message": "Drag or paste images here",
-    "description": "Page content."
+    "message": "将图片拖放到此处",
+    "description": "页面内容"
   },
 
   "pageContent_browse_drop": {
-    "message": "Drop images here",
-    "description": "Page content."
+    "message": "将图片拖到这里",
+    "description": "页面内容"
   },
 
   "pageContent_results_title": {
-    "message": "Search results from $ENGINE$",
-    "description": "Page content.",
+    "message": " $ENGINE$ 上的搜索结果",
+    "description": "页面内容",
     "placeholders": {
       "engine": {
         "content": "$1",
-        "example": "Google"
+        "example": "谷歌"
       }
     }
   },
 
   "inputPlaceholder_imageUrl": {
-    "message": "Image URL",
-    "description": "Placeholder of the input."
+    "message": "图片 URL",
+    "description": "输入的占位符"
   },
 
   "pageTitle": {
     "message": "$PAGETITLE$ - $EXTENSIONNAME$",
-    "description": "Title of the page.",
+    "description": "页面标题",
     "placeholders": {
       "pageTitle": {
         "content": "$1",
-        "example": "Options"
+        "example": "选项"
       },
       "extensionName": {
         "content": "$2",
-        "example": "Extension Name"
+        "example": "扩展名"
       }
     }
   },
 
   "pageTitle_options": {
-    "message": "Options",
-    "description": "Title of the page."
+    "message": "选项",
+    "description": "页面标题"
   },
 
   "pageTitle_browse": {
-    "message": "Browse",
-    "description": "Title of the page."
+    "message": "浏览",
+    "description": "页面标题"
   },
 
   "pageTitle_contribute": {
-    "message": "Contribute",
-    "description": "Title of the page."
+    "message": "贡献",
+    "description": "页面标题"
   },
 
   "error_invalidPageUrl": {
-    "message": "The page URL is not valid. Try searching for the image again.",
-    "description": "Error message."
+    "message": "页面URL无效，尝试再次搜索图像。",
+    "description": "错误信息"
   },
 
   "error_sessionExpired": {
-    "message": "The session has expired. Try searching for the image on $ENGINE$ again.",
-    "description": "Error message.",
+    "message": "会话已过期。 尝试再次在 $ENGINE$ 上搜索图像.",
+    "description": "错误信息",
     "placeholders": {
       "engine": {
         "content": "$1",
-        "example": "Google"
+        "example": "谷歌"
       }
     }
   },
 
   "error_invalidImageSize": {
-    "message": "The uploaded image is too large. $ENGINE$ accepts images up to $SIZE$ in size.",
-    "description": "Error message.",
+    "message": "上传的图片太大. $ENGINE$ 接受大小不超过 $SIZE$ 的图像",
+    "description": "错误信息",
     "placeholders": {
       "engine": {
         "content": "$1",
-        "example": "Google"
+        "example": "谷歌"
       },
       "size": {
         "content": "$2",
@@ -650,7 +650,7 @@
 
   "unit_mb": {
     "message": "$VALUE$ MB",
-    "description": "Unit notation.",
+    "description": "单位符号",
     "placeholders": {
       "value": {
         "content": "$1",
@@ -660,74 +660,74 @@
   },
 
   "error_invalidImageUrl": {
-    "message": "The image URL is not valid.",
-    "description": "Error message."
+    "message": "图片网址无效。",
+    "description": "错误信息"
   },
 
   "error_invalidImageUrl_fileUrl": {
-    "message": "Searching for images loaded from local file URLs is not supported.",
-    "description": "Error message."
+    "message": "不支持搜索从本地文件加载的图像",
+    "description": "错误信息"
   },
 
   "error_invalidSearchMode_url": {
-    "message": "Searching for image URLs is supported only from the browser toolbar popup. Visit the options page to select a different search mode.",
-    "description": "Error message."
+    "message": "仅从浏览器工具栏弹出窗口中支持搜索图像URL。 访问选项页面以选择其他搜索模式。",
+    "description": "错误信息"
   },
 
   "error_invalidImageFile": {
-    "message": "The selected items are not images.",
-    "description": "Error message."
+    "message": "所选项目不是图像",
+    "description": "错误信息"
   },
 
   "error_invalidImageCount": {
-    "message": "Select fewer images. Up to three images can be uploaded at once.",
-    "description": "Error message."
+    "message": "请选择较少的图像。 一次最多可以上传三张图像。",
+    "description": "错误信息"
   },
 
   "error_engine": {
-    "message": "Something went wrong. Searching on $ENGINE$ has failed.",
-    "description": "Error message.",
+    "message": "出错了， 在$ENGINE$ 上搜索",
+    "description": "错误信息",
     "placeholders": {
       "engine": {
         "content": "$1",
-        "example": "Google"
+        "example": "谷歌"
       }
     }
   },
 
   "error_formUpload": {
-    "message": "$ENGINE$ image uploading requires at least Chrome 60, Firefox 57 or Opera 47.",
-    "description": "Error message.",
+    "message": "$ENGINE$ 图片上传至少需要Chrome 60，Firefox 57或Opera 47。",
+    "description": "错误信息",
     "placeholders": {
       "engine": {
         "content": "$1",
-        "example": "Google"
+        "example": "谷歌"
       }
     }
   },
 
   "error_scriptsNotAllowed": {
-    "message": "Content scripts are not allowed on this page.",
-    "description": "Error message."
+    "message": "此页面上不允许使用内容脚本",
+    "description": "错误信息"
   },
 
   "error_imageNotFound": {
-    "message": "No image found. Try searching again by placing the cursor above the image.",
-    "description": "Error message."
+    "message": "找不到图像，将光标放在图像上方，尝试再次搜索。",
+    "description": "错误信息"
   },
 
   "error_invalidSearchMethod": {
-    "message": "The selected search engine does not support the current search method.",
-    "description": "Error message."
+    "message": "所选的搜索引擎不支持当前的搜索方法。",
+    "description": "错误信息"
   },
 
   "error_invalidCaptureArea": {
-    "message": "Select a page area to capture before searching.",
-    "description": "Error message."
+    "message": "在搜索之前，选择要捕获的页面区域。",
+    "description": "错误信息"
   },
 
   "error_internalError": {
-    "message": "Something went wrong. Reload the page before searching again.",
-    "description": "Error message."
+    "message": "出了些问题，重新加载页面，然后再次搜索。",
+    "description": "错误信息"
   }
 }

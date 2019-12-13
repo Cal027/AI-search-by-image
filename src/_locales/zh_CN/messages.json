@@ -1,0 +1,733 @@
+{
+  "extensionName": {
+    "message": "YOLO搜图",
+    "description": "Name of the extension."
+  },
+
+  "extensionDescription": {
+    "message": "AI驱动的多目标识别搜图插件，支持多种方式与引擎",
+    "description": "Description of the extension."
+  },
+
+  "engineName_google": {
+    "message": "Google",
+    "description": "Name of the search engine."
+  },
+
+  "engineName_bing": {
+    "message": "Bing",
+    "description": "Name of the search engine."
+  },
+
+  "engineName_yandex": {
+    "message": "Yandex",
+    "description": "Name of the search engine."
+  },
+
+  "engineName_baidu": {
+    "message": "Baidu",
+    "description": "Name of the search engine."
+  },
+
+  "engineName_tineye": {
+    "message": "TinEye",
+    "description": "Name of the search engine."
+  },
+
+  "engineName_sogou": {
+    "message": "Sogou",
+    "description": "Name of the search engine."
+  },
+
+  "engineName_karmaDecay": {
+    "message": "Karma Decay",
+    "description": "Name of the search engine."
+  },
+
+  "engineName_whatanime": {
+    "message": "trace.moe",
+    "description": "Name of the search engine."
+  },
+
+  "engineName_saucenao": {
+    "message": "SauceNAO",
+    "description": "Name of the search engine."
+  },
+
+  "engineName_iqdb": {
+    "message": "Iqdb",
+    "description": "Name of the search engine."
+  },
+
+  "engineName_ascii2d": {
+    "message": "Ascii2d",
+    "description": "Name of the search engine."
+  },
+
+  "engineName_getty": {
+    "message": "Getty",
+    "description": "Name of the search engine."
+  },
+
+  "engineName_istock": {
+    "message": "iStock",
+    "description": "Name of the search engine."
+  },
+
+  "engineName_shutterstock": {
+    "message": "Shutterstock",
+    "description": "Name of the search engine."
+  },
+
+  "engineName_adobestock": {
+    "message": "Adobe Stock",
+    "description": "Name of the search engine."
+  },
+
+  "engineName_depositphotos": {
+    "message": "Depositphotos",
+    "description": "Name of the search engine."
+  },
+
+  "engineName_pinterest": {
+    "message": "Pinterest",
+    "description": "Name of the search engine."
+  },
+
+  "engineName_qihoo": {
+    "message": "Qihoo 360",
+    "description": "Name of the search engine."
+  },
+
+  "engineName_jingdong": {
+    "message": "Jingdong",
+    "description": "Name of the search engine."
+  },
+
+  "engineName_taobao": {
+    "message": "Taobao",
+    "description": "Name of the search engine."
+  },
+
+  "engineName_alibabaChina": {
+    "message": "Alibaba China",
+    "description": "Name of the search engine."
+  },
+
+  "engineName_mailru": {
+    "message": "Mail.ru",
+    "description": "Name of the search engine."
+  },
+
+  "engineName_allEngines": {
+    "message": "全部搜索引擎",
+    "description": "Name of the search engine."
+  },
+
+  "actionTitle_allEngines": {
+    "message": "搜索全部引擎",
+    "description": "Title of the action."
+  },
+
+  "actionTitle_engine": {
+    "message": "Search $ENGINE$ for image",
+    "description": "Title of the action.",
+    "placeholders": {
+      "engine": {
+        "content": "$1",
+        "example": "Google"
+      }
+    }
+  },
+
+  "menuItemTitle_google": {
+    "message": "Google",
+    "description": "Title of the menu item."
+  },
+
+  "menuItemTitle_bing": {
+    "message": "Bing",
+    "description": "Title of the menu item."
+  },
+
+  "menuItemTitle_yandex": {
+    "message": "Yandex",
+    "description": "Title of the menu item."
+  },
+
+  "menuItemTitle_baidu": {
+    "message": "Baidu",
+    "description": "Title of the menu item."
+  },
+
+  "menuItemTitle_tineye": {
+    "message": "TinEye",
+    "description": "Title of the menu item."
+  },
+
+  "menuItemTitle_sogou": {
+    "message": "Sogou",
+    "description": "Title of the menu item."
+  },
+
+  "menuItemTitle_karmaDecay": {
+    "message": "Karma Decay",
+    "description": "Title of the menu item."
+  },
+
+  "menuItemTitle_whatanime": {
+    "message": "trace.moe",
+    "description": "Title of the menu item."
+  },
+
+  "menuItemTitle_saucenao": {
+    "message": "SauceNAO",
+    "description": "Title of the menu item."
+  },
+
+  "menuItemTitle_iqdb": {
+    "message": "Iqdb",
+    "description": "Title of the menu item."
+  },
+
+  "menuItemTitle_ascii2d": {
+    "message": "Ascii2d",
+    "description": "Title of the menu item."
+  },
+
+  "menuItemTitle_getty": {
+    "message": "Getty",
+    "description": "Title of the menu item."
+  },
+
+  "menuItemTitle_istock": {
+    "message": "iStock",
+    "description": "Title of the menu item."
+  },
+
+  "menuItemTitle_shutterstock": {
+    "message": "Shutterstock",
+    "description": "Title of the menu item."
+  },
+
+  "menuItemTitle_adobestock": {
+    "message": "Adobe Stock",
+    "description": "Title of the menu item."
+  },
+
+  "menuItemTitle_depositphotos": {
+    "message": "Depositphotos",
+    "description": "Title of the menu item."
+  },
+
+  "menuItemTitle_pinterest": {
+    "message": "Pinterest",
+    "description": "Title of the menu item."
+  },
+
+  "menuItemTitle_qihoo": {
+    "message": "360",
+    "description": "Title of the menu item."
+  },
+
+  "menuItemTitle_jingdong": {
+    "message": "京东",
+    "description": "Title of the menu item."
+  },
+
+  "menuItemTitle_taobao": {
+    "message": "淘宝",
+    "description": "Title of the menu item."
+  },
+
+  "menuItemTitle_alibabaChina": {
+    "message": "Alibaba China",
+    "description": "Title of the menu item."
+  },
+
+  "menuItemTitle_mailru": {
+    "message": "Mail.ru",
+    "description": "Title of the menu item."
+  },
+
+  "menuItemTitle_allEngines": {
+    "message": "全部搜索引擎",
+    "description": "Title of the menu item."
+  },
+
+  "mainMenuItemTitle_allEngines": {
+    "message": "搜索全部引擎",
+    "description": "Title of the menu item."
+  },
+
+  "mainMenuItemTitle_engine": {
+    "message": "Search $ENGINE$ for image",
+    "description": "Title of the menu item.",
+    "placeholders": {
+      "engine": {
+        "content": "$1",
+        "example": "Google"
+      }
+    }
+  },
+
+  "optionSectionTitle_engines": {
+    "message": "搜索引擎",
+    "description": "Title of the options section."
+  },
+
+  "optionSectionDescription_engines": {
+    "message": "Toggle search engines and customize their order (drag and drop)",
+    "description": "Description of the options section."
+  },
+
+  "optionTitle_google": {
+    "message": "Google Images",
+    "description": "Title of the option."
+  },
+
+  "optionTitle_bing": {
+    "message": "Bing Images",
+    "description": "Title of the option."
+  },
+
+  "optionTitle_yandex": {
+    "message": "Yandex.Images",
+    "description": "Title of the option."
+  },
+
+  "optionTitle_baidu": {
+    "message": "Baidu Image Search",
+    "description": "Title of the option."
+  },
+
+  "optionTitle_tineye": {
+    "message": "TinEye Reverse Image Search",
+    "description": "Title of the option."
+  },
+
+  "optionTitle_sogou": {
+    "message": "Sogou Images",
+    "description": "Title of the option."
+  },
+
+  "optionTitle_karmaDecay": {
+    "message": "Karma Decay",
+    "description": "Title of the option."
+  },
+
+  "optionTitle_whatanime": {
+    "message": "trace.moe",
+    "description": "Title of the option."
+  },
+
+  "optionTitle_saucenao": {
+    "message": "SauceNAO",
+    "description": "Title of the option."
+  },
+
+  "optionTitle_iqdb": {
+    "message": "Iqdb",
+    "description": "Title of the option."
+  },
+
+  "optionTitle_ascii2d": {
+    "message": "Ascii2d",
+    "description": "Title of the option."
+  },
+
+  "optionTitle_getty": {
+    "message": "Getty Images",
+    "description": "Title of the option."
+  },
+
+  "optionTitle_istock": {
+    "message": "iStock",
+    "description": "Title of the option."
+  },
+
+  "optionTitle_shutterstock": {
+    "message": "Shutterstock",
+    "description": "Title of the option."
+  },
+
+  "optionTitle_adobestock": {
+    "message": "Adobe Stock",
+    "description": "Title of the option."
+  },
+
+  "optionTitle_depositphotos": {
+    "message": "Depositphotos",
+    "description": "Title of the option."
+  },
+
+  "optionTitle_pinterest": {
+    "message": "Pinterest",
+    "description": "Title of the option."
+  },
+
+  "optionTitle_qihoo": {
+    "message": "Qihoo 360 Images",
+    "description": "Title of the option."
+  },
+
+  "optionTitle_jingdong": {
+    "message": "Jingdong",
+    "description": "Title of the option."
+  },
+
+  "optionTitle_taobao": {
+    "message": "淘宝",
+    "description": "Title of the option."
+  },
+
+  "optionTitle_alibabaChina": {
+    "message": "阿里巴巴",
+    "description": "Title of the option."
+  },
+
+  "optionTitle_mailru": {
+    "message": "Mail.ru Image Search",
+    "description": "Title of the option."
+  },
+
+  "optionTitle_searchMode": {
+    "message": "Search mode",
+    "description": "Title of the option."
+  },
+
+  "optionTitle_searchAllEngines": {
+    "message": "Search all engines",
+    "description": "Title of the option."
+  },
+
+  "optionSectionTitle_toolbar": {
+    "message": "查看工具栏",
+    "description": "Title of the options section."
+  },
+
+  "optionValue_searchAllEnginesAction_main": {
+    "message": "From browser toolbar",
+    "description": "Value of the option."
+  },
+
+  "optionValue_searchAllEnginesAction_sub": {
+    "message": "From browser toolbar popup",
+    "description": "Value of the option."
+  },
+
+  "optionValue_searchAllEnginesAction_false": {
+    "message": "禁用",
+    "description": "Value of the option."
+  },
+
+  "optionValue_action_searchModeAction_select": {
+    "message": "选择",
+    "description": "Value of the option."
+  },
+
+  "optionValue_action_searchModeAction_selectUpload": {
+    "message": "选择&上传",
+    "description": "Value of the option."
+  },
+
+  "optionValue_action_searchModeAction_capture": {
+    "message": "捕获",
+    "description": "Value of the option."
+  },
+
+  "optionValue_action_searchModeAction_upload": {
+    "message": "上传",
+    "description": "Value of the option."
+  },
+
+  "optionValue_action_searchModeAction_url": {
+    "message": "URL",
+    "description": "Value of the option."
+  },
+
+  "optionValue_searchModeAction_select": {
+    "message": "选择",
+    "description": "Value of the option."
+  },
+
+  "optionValue_searchModeAction_selectUpload": {
+    "message": "选择&上传",
+    "description": "Value of the option."
+  },
+
+  "optionValue_searchModeAction_capture": {
+    "message": "捕获",
+    "description": "Value of the option."
+  },
+
+  "optionValue_searchModeAction_upload": {
+    "message": "上传",
+    "description": "Value of the option."
+  },
+
+  "optionValue_searchModeAction_url": {
+    "message": "URL",
+    "description": "Value of the option."
+  },
+
+  "optionSectionTitle_contextmenu": {
+    "message": "Context menu",
+    "description": "Title of the options section."
+  },
+
+  "optionValue_searchAllEnginesContextMenu_main": {
+    "message": "From context menu",
+    "description": "Value of the option."
+  },
+
+  "optionValue_searchAllEnginesContextMenu_sub": {
+    "message": "From submenu of context menu",
+    "description": "Value of the option."
+  },
+
+  "optionValue_searchAllEnginesContextMenu_false": {
+    "message": "Disable",
+    "description": "Value of the option."
+  },
+
+  "optionTitle_showInContextMenu": {
+    "message": "Show in context menu",
+    "description": "Title of the option."
+  },
+
+  "optionValue_searchModeContextMenu_select": {
+    "message": "Select",
+    "description": "Value of the option."
+  },
+
+  "optionValue_searchModeContextMenu_selectUpload": {
+    "message": "Select & upload",
+    "description": "Value of the option."
+  },
+
+  "optionValue_searchModeContextMenu_capture": {
+    "message": "Capture",
+    "description": "Value of the option."
+  },
+
+  "optionSectionTitle_misc": {
+    "message": "Miscellaneous",
+    "description": "Title of the options section."
+  },
+
+  "optionTitle_tabInBackgound": {
+    "message": "Open new tabs in the background",
+    "description": "Title of the option."
+  },
+
+  "optionTitle_localGoogle": {
+    "message": "Use local Google site",
+    "description": "Title of the option."
+  },
+
+  "optionTitle_imgFullParse": {
+    "message": "Look above and below <img> elements",
+    "description": "Title of the option."
+  },
+
+  "dialogTitle_imageConfirmation": {
+    "message": "Select an image to search for",
+    "description": "Title of the dialog."
+  },
+
+  "snackbarMessage_imageSelection": {
+    "message": "Select an image to search for",
+    "description": "Text of the snackbar."
+  },
+
+  "snackbarMessage_imageCapture": {
+    "message": "Select a page area to search for",
+    "description": "Text of the snackbar."
+  },
+
+  "buttonText_cancel": {
+    "message": "Cancel",
+    "description": "Text of the button."
+  },
+
+  "buttonText_browse": {
+    "message": "Browse",
+    "description": "Text of the button."
+  },
+
+  "buttonText_search": {
+    "message": "Search",
+    "description": "Text of the button."
+  },
+
+  "pageContent_browse_drag": {
+    "message": "Drag or paste images here",
+    "description": "Page content."
+  },
+
+  "pageContent_browse_drop": {
+    "message": "Drop images here",
+    "description": "Page content."
+  },
+
+  "pageContent_results_title": {
+    "message": "Search results from $ENGINE$",
+    "description": "Page content.",
+    "placeholders": {
+      "engine": {
+        "content": "$1",
+        "example": "Google"
+      }
+    }
+  },
+
+  "inputPlaceholder_imageUrl": {
+    "message": "Image URL",
+    "description": "Placeholder of the input."
+  },
+
+  "pageTitle": {
+    "message": "$PAGETITLE$ - $EXTENSIONNAME$",
+    "description": "Title of the page.",
+    "placeholders": {
+      "pageTitle": {
+        "content": "$1",
+        "example": "Options"
+      },
+      "extensionName": {
+        "content": "$2",
+        "example": "Extension Name"
+      }
+    }
+  },
+
+  "pageTitle_options": {
+    "message": "Options",
+    "description": "Title of the page."
+  },
+
+  "pageTitle_browse": {
+    "message": "Browse",
+    "description": "Title of the page."
+  },
+
+  "pageTitle_contribute": {
+    "message": "Contribute",
+    "description": "Title of the page."
+  },
+
+  "error_invalidPageUrl": {
+    "message": "The page URL is not valid. Try searching for the image again.",
+    "description": "Error message."
+  },
+
+  "error_sessionExpired": {
+    "message": "The session has expired. Try searching for the image on $ENGINE$ again.",
+    "description": "Error message.",
+    "placeholders": {
+      "engine": {
+        "content": "$1",
+        "example": "Google"
+      }
+    }
+  },
+
+  "error_invalidImageSize": {
+    "message": "The uploaded image is too large. $ENGINE$ accepts images up to $SIZE$ in size.",
+    "description": "Error message.",
+    "placeholders": {
+      "engine": {
+        "content": "$1",
+        "example": "Google"
+      },
+      "size": {
+        "content": "$2",
+        "example": "10 MB"
+      }
+    }
+  },
+
+  "unit_mb": {
+    "message": "$VALUE$ MB",
+    "description": "Unit notation.",
+    "placeholders": {
+      "value": {
+        "content": "$1",
+        "example": "10"
+      }
+    }
+  },
+
+  "error_invalidImageUrl": {
+    "message": "The image URL is not valid.",
+    "description": "Error message."
+  },
+
+  "error_invalidImageUrl_fileUrl": {
+    "message": "Searching for images loaded from local file URLs is not supported.",
+    "description": "Error message."
+  },
+
+  "error_invalidSearchMode_url": {
+    "message": "Searching for image URLs is supported only from the browser toolbar popup. Visit the options page to select a different search mode.",
+    "description": "Error message."
+  },
+
+  "error_invalidImageFile": {
+    "message": "The selected items are not images.",
+    "description": "Error message."
+  },
+
+  "error_invalidImageCount": {
+    "message": "Select fewer images. Up to three images can be uploaded at once.",
+    "description": "Error message."
+  },
+
+  "error_engine": {
+    "message": "Something went wrong. Searching on $ENGINE$ has failed.",
+    "description": "Error message.",
+    "placeholders": {
+      "engine": {
+        "content": "$1",
+        "example": "Google"
+      }
+    }
+  },
+
+  "error_formUpload": {
+    "message": "$ENGINE$ image uploading requires at least Chrome 60, Firefox 57 or Opera 47.",
+    "description": "Error message.",
+    "placeholders": {
+      "engine": {
+        "content": "$1",
+        "example": "Google"
+      }
+    }
+  },
+
+  "error_scriptsNotAllowed": {
+    "message": "Content scripts are not allowed on this page.",
+    "description": "Error message."
+  },
+
+  "error_imageNotFound": {
+    "message": "No image found. Try searching again by placing the cursor above the image.",
+    "description": "Error message."
+  },
+
+  "error_invalidSearchMethod": {
+    "message": "The selected search engine does not support the current search method.",
+    "description": "Error message."
+  },
+
+  "error_invalidCaptureArea": {
+    "message": "Select a page area to capture before searching.",
+    "description": "Error message."
+  },
+
+  "error_internalError": {
+    "message": "Something went wrong. Reload the page before searching again.",
+    "description": "Error message."
+  }
+}

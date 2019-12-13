@@ -1,289 +1,289 @@
 {
   "extensionName": {
-    "message": "YOLO image searcher",
-    "description": "Name of the extension."
+    "message": "YOLO搜图",
+    "description": "扩展名"
   },
 
   "extensionDescription": {
-    "message": "AI-driven multi-target recognition search plugin, supports multiple methods and engines",
-    "description": "Description of the extension."
+    "message": "AI驱动的多目标识别搜索插件，支持多种方法和引擎",
+    "description": "扩展说明"
   },
 
   "engineName_google": {
-    "message": "Google",
-    "description": "Name of the search engine."
+    "message": "谷歌",
+    "description": "搜索引擎名称"
   },
 
   "engineName_bing": {
-    "message": "Bing",
-    "description": "Name of the search engine."
+    "message": "必应",
+    "description": "搜索引擎名称"
   },
 
   "engineName_yandex": {
     "message": "Yandex",
-    "description": "Name of the search engine."
+    "description": "搜索引擎名称"
   },
 
   "engineName_baidu": {
-    "message": "Baidu",
-    "description": "Name of the search engine."
+    "message": "百度",
+    "description": "搜索引擎名称"
   },
 
   "engineName_tineye": {
-    "message": "TinEye",
-    "description": "Name of the search engine."
+    "message": "天眼",
+    "description": "搜索引擎名称"
   },
 
   "engineName_sogou": {
-    "message": "Sogou",
-    "description": "Name of the search engine."
+    "message": "搜狗",
+    "description": "搜索引擎名称"
   },
 
   "engineName_karmaDecay": {
     "message": "Karma Decay",
-    "description": "Name of the search engine."
+    "description": "搜索引擎名称"
   },
 
   "engineName_whatanime": {
     "message": "trace.moe",
-    "description": "Name of the search engine."
+    "description": "搜索引擎名称"
   },
 
   "engineName_saucenao": {
     "message": "SauceNAO",
-    "description": "Name of the search engine."
+    "description": "搜索引擎名称"
   },
 
   "engineName_iqdb": {
     "message": "Iqdb",
-    "description": "Name of the search engine."
+    "description": "搜索引擎名称"
   },
 
   "engineName_ascii2d": {
     "message": "Ascii2d",
-    "description": "Name of the search engine."
+    "description": "搜索引擎名称"
   },
 
   "engineName_getty": {
     "message": "Getty",
-    "description": "Name of the search engine."
+    "description": "搜索引擎名称"
   },
 
   "engineName_istock": {
     "message": "iStock",
-    "description": "Name of the search engine."
+    "description": "搜索引擎名称"
   },
 
   "engineName_shutterstock": {
     "message": "Shutterstock",
-    "description": "Name of the search engine."
+    "description": "搜索引擎名称"
   },
 
   "engineName_adobestock": {
     "message": "Adobe Stock",
-    "description": "Name of the search engine."
+    "description": "搜索引擎名称"
   },
 
   "engineName_depositphotos": {
     "message": "Depositphotos",
-    "description": "Name of the search engine."
+    "description": "搜索引擎名称"
   },
 
   "engineName_pinterest": {
     "message": "Pinterest",
-    "description": "Name of the search engine."
+    "description": "搜索引擎名称"
   },
 
   "engineName_qihoo": {
-    "message": "Qihoo 360",
-    "description": "Name of the search engine."
+    "message": "奇虎 360",
+    "description": "搜索引擎名称"
   },
 
   "engineName_jingdong": {
-    "message": "Jingdong",
-    "description": "Name of the search engine."
+    "message": "京东",
+    "description": "搜索引擎名称"
   },
 
   "engineName_taobao": {
-    "message": "Taobao",
-    "description": "Name of the search engine."
+    "message": "淘宝",
+    "description": "搜索引擎名称"
   },
 
   "engineName_alibabaChina": {
-    "message": "Alibaba China",
-    "description": "Name of the search engine."
+    "message": "阿里巴巴",
+    "description": "搜索引擎名称"
   },
 
   "engineName_mailru": {
     "message": "Mail.ru",
-    "description": "Name of the search engine."
+    "description": "搜索引擎名称"
   },
 
   "engineName_allEngines": {
-    "message": "All search engines",
-    "description": "Name of the search engine."
+    "message": "所有搜寻引擎",
+    "description": "搜索引擎名称"
   },
 
   "actionTitle_allEngines": {
-    "message": "Search all engines",
-    "description": "Title of the action."
+    "message": "搜索所有引擎",
+    "description": "动作标题"
   },
 
   "actionTitle_engine": {
     "message": "Search $ENGINE$ for image",
-    "description": "Title of the action.",
+    "description": "动作标题",
     "placeholders": {
       "engine": {
         "content": "$1",
-        "example": "Google"
+        "example": "谷歌"
       }
     }
   },
 
   "menuItemTitle_google": {
-    "message": "Google",
-    "description": "Title of the menu item."
+    "message": "谷歌",
+    "description": "菜单项的标题"
   },
 
   "menuItemTitle_bing": {
-    "message": "Bing",
-    "description": "Title of the menu item."
+    "message": "必应",
+    "description": "菜单项的标题"
   },
 
   "menuItemTitle_yandex": {
     "message": "Yandex",
-    "description": "Title of the menu item."
+    "description": "菜单项的标题"
   },
 
   "menuItemTitle_baidu": {
-    "message": "Baidu",
-    "description": "Title of the menu item."
+    "message": "百度",
+    "description": "菜单项的标题"
   },
 
   "menuItemTitle_tineye": {
-    "message": "TinEye",
-    "description": "Title of the menu item."
+    "message": "天眼",
+    "description": "菜单项的标题"
   },
 
   "menuItemTitle_sogou": {
-    "message": "Sogou",
-    "description": "Title of the menu item."
+    "message": "搜狗",
+    "description": "菜单项的标题"
   },
 
   "menuItemTitle_karmaDecay": {
     "message": "Karma Decay",
-    "description": "Title of the menu item."
+    "description": "菜单项的标题"
   },
 
   "menuItemTitle_whatanime": {
     "message": "trace.moe",
-    "description": "Title of the menu item."
+    "description": "菜单项的标题"
   },
 
   "menuItemTitle_saucenao": {
     "message": "SauceNAO",
-    "description": "Title of the menu item."
+    "description": "菜单项的标题"
   },
 
   "menuItemTitle_iqdb": {
     "message": "Iqdb",
-    "description": "Title of the menu item."
+    "description": "菜单项的标题"
   },
 
   "menuItemTitle_ascii2d": {
     "message": "Ascii2d",
-    "description": "Title of the menu item."
+    "description": "菜单项的标题"
   },
 
   "menuItemTitle_getty": {
     "message": "Getty",
-    "description": "Title of the menu item."
+    "description": "菜单项的标题"
   },
 
   "menuItemTitle_istock": {
     "message": "iStock",
-    "description": "Title of the menu item."
+    "description": "菜单项的标题"
   },
 
   "menuItemTitle_shutterstock": {
     "message": "Shutterstock",
-    "description": "Title of the menu item."
+    "description": "菜单项的标题"
   },
 
   "menuItemTitle_adobestock": {
     "message": "Adobe Stock",
-    "description": "Title of the menu item."
+    "description": "菜单项的标题"
   },
 
   "menuItemTitle_depositphotos": {
     "message": "Depositphotos",
-    "description": "Title of the menu item."
+    "description": "菜单项的标题"
   },
 
   "menuItemTitle_pinterest": {
     "message": "Pinterest",
-    "description": "Title of the menu item."
+    "description": "菜单项的标题"
   },
 
   "menuItemTitle_qihoo": {
     "message": "360",
-    "description": "Title of the menu item."
+    "description": "菜单项的标题"
   },
 
   "menuItemTitle_jingdong": {
-    "message": "JD",
-    "description": "Title of the menu item."
+    "message": "京东",
+    "description": "菜单项的标题"
   },
 
   "menuItemTitle_taobao": {
-    "message": "Taobao",
-    "description": "Title of the menu item."
+    "message": "淘宝",
+    "description": "菜单项的标题"
   },
 
   "menuItemTitle_alibabaChina": {
-    "message": "Alibaba China",
-    "description": "Title of the menu item."
+    "message": "阿里巴巴",
+    "description": "菜单项的标题"
   },
 
   "menuItemTitle_mailru": {
     "message": "Mail.ru",
-    "description": "Title of the menu item."
+    "description": "菜单项的标题"
   },
 
   "menuItemTitle_allEngines": {
-    "message": "All search engines",
-    "description": "Title of the menu item."
+    "message": "所有搜寻引擎",
+    "description": "菜单项的标题"
   },
 
   "mainMenuItemTitle_allEngines": {
-    "message": "Search all engines",
-    "description": "Title of the menu item."
+    "message": "搜索所有引擎",
+    "description": "菜单项的标题"
   },
 
   "mainMenuItemTitle_engine": {
     "message": "Search $ENGINE$ for image",
-    "description": "Title of the menu item.",
+    "description": "菜单项的标题",
     "placeholders": {
       "engine": {
         "content": "$1",
-        "example": "Google"
+        "example": "谷歌"
       }
     }
   },
 
   "optionSectionTitle_engines": {
-    "message": "search engine",
-    "description": "Title of the options section."
+    "message": "搜索引擎",
+    "description": "选项部分的标题"
   },
 
   "optionSectionDescription_engines": {
-    "message": "Toggle search engines and customize their order (drag and drop)",
-    "description": "Description of the options section."
+    "message": "切换搜索引擎并自定义其顺序（拖放）",
+    "description": "选项部分的说明"
   },
 
   "optionTitle_google": {
-    "message": "Google Images",
-    "description": "Title of the option."
+    "message": "谷歌图片",
+    "description": "选项的标题"
   },
 
   "optionTitle_bing": {

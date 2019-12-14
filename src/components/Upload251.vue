@@ -1,10 +1,12 @@
 <template>
   <div>
-    <el-upload drag action=""
+    <el-upload drag action="https://4c7298efd5d44a09b1affdafcf7ee5d6.apigw.cn-north-4.huaweicloud.com/v1/infers/0d69f607-0105-4767-8157-38ac4a927bd0"
                :auto-upload="false"
                ref="upload"
                accept=".jpg, .jpeg, .png"
-               :on-error="onSuccess"
+               :on-success="onSuccess"
+               :headers="uploadHeader"
+               :name="filename"
                :before-upload="beforeUpload">
       <i class="el-icon-upload"/>
       <div class="el-upload__text">将图片拖到此处，或<em>点击上传</em></div>
@@ -58,7 +60,8 @@ export default {
   data () {
     return {
       api: 'https://4c7298efd5d44a09b1affdafcf7ee5d6.apigw.cn-north-4.huaweicloud.com/v1/infers/0d69f607-0105-4767-8157-38ac4a927bd0',
-      token: '',
+      filename: 'images',
+      uploadHeader: {},
       showRes: false,
       img: null,
       ImgList: [],
@@ -158,41 +161,44 @@ export default {
     }
   },
   mounted () {
-    if (localStorage.token) {
-      this.token = localStorage.token
-    } else {
-      // const body = require('@/assets/header.json')
-      // console.log(body)
-      this.axios({
-        url: 'https://iam.cn-north-1.myhuaweicloud.com/v3/auth/tokens',
-        method: 'post',
-        data: JSON.stringify({
-          'auth': {
-            'identity': {
-              'methods': ['password'],
-              'password': {
-                'user': {
-                  'name': 'getToken',
-                  'password': 'token123',
-                  'domain': {
-                    'name': 'ljhsdsg'
-                  }
-                }
-              }
-            },
-            'scope': {
-              'project': {
-                'name': 'cn-north-4'
-              }
-            }
-          }
-        })
-      }
-      ).then(res => {
-        console.log(res)
-        localStorage.setItem('token', res.headers['X-Subject-Token'])
-      })
-    }
+    // this.token = require('@/assets/token.json')
+    this.uploadHeader = require('@/assets/token.json')
+    // console.log(this.token)
+    // if (localStorage.token) {
+    //   this.token = localStorage.token
+    // } else {
+    //   // const body = require('@/assets/header.json')
+    //   // console.log(body)
+    //   this.axios({
+    //     url: 'https://iam.cn-north-1.myhuaweicloud.com/v3/auth/tokens',
+    //     method: 'post',
+    //     data: JSON.stringify({
+    //       'auth': {
+    //         'identity': {
+    //           'methods': ['password'],
+    //           'password': {
+    //             'user': {
+    //               'name': 'getToken',
+    //               'password': 'token123',
+    //               'domain': {
+    //                 'name': 'ljhsdsg'
+    //               }
+    //             }
+    //           }
+    //         },
+    //         'scope': {
+    //           'project': {
+    //             'name': 'cn-north-4'
+    //           }
+    //         }
+    //       }
+    //     })
+    //   }
+    //   ).then(res => {
+    //     console.log(res)
+    //     localStorage.setItem('token', res.headers['X-Subject-Token'])
+    //   })
+    // }
   }
 }
 </script>

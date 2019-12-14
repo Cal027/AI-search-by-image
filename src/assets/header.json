@@ -1,0 +1,21 @@
+{
+  "auth": {
+    "identity": {
+      "methods": ["password"],
+      "password": {
+        "user": {
+          "name": "getToken",
+          "password": "token123",
+          "domain": {
+            "name": "ljhsdsg"
+          }
+        }
+      }
+    },
+    "scope": {
+      "project": {
+        "name": "cn-north-4"
+      }
+    }
+  }
+}

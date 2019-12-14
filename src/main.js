@@ -1,11 +1,12 @@
 import Vue from 'vue'
 import App from './App.vue'
 import ElementUI from 'element-ui'
-import { Cropper } from 'vue-advanced-cropper'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
 import 'element-ui/lib/theme-chalk/index.css'
 
 Vue.use(ElementUI)
-Vue.component(Cropper)
+Vue.use(VueAxios, axios)
 
 Vue.config.productionTip = false
 

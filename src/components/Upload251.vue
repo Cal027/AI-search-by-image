@@ -14,42 +14,56 @@
     <el-button icon="el-icon-delete" size="medium" circle @click="cleanImg"/>
     <div v-if="showRes">
       <el-divider/>
-      <el-row type="flex">
+      <vue-cropper v-show="false" ref="cropper"/>
+      <el-dialog title="编辑" destroy-on-close :visible.sync="dialogVisible">
+        <vue-cropper ref="edit"/>
+        <el-button round @click="cropImage">截取</el-button>
+      </el-dialog>
+      <el-row type="flex" justify="space-around" :gutter="20">
         <el-col :span="14">
           <el-image :src="img" class="src-img" fit="contain" v-if="img"/>
           <br/>
           <span>原图片</span>
         </el-col>
         <el-col :span="14">
-          <el-row v-for="(obj,index) in detectObjects" :key="index" style="margin-bottom: 20px">
-            <el-col :span="18">
-              <cropper :src="img" class="detect-obj"/>
-              <div class="operation">
-                <span>{{obj.class}}</span>
-                <el-button style="margin-left: 5px"
-                           icon="el-icon-search"
-                           @click="searchImg(index)"
-                           type="success" circle
-                           size="mini"/>
-              </div>
-            </el-col>
+          <el-row v-for="(obj,index) in detectObjects" :key="index" style="margin-bottom: 20px;margin-left: 50px">
+            <div class="operation">
+              <el-image :src="getImage(index)" fit="contain"/>
+              <span>{{obj.class}}</span>
+              <el-button icon="el-icon-edit"
+                         style="margin-left: 5px;margin-right: 5px"
+                         @click="editImage(obj,index)"
+                         circle size="mini"/>
+              <el-button icon="el-icon-search"
+                         @click="searchImg(index)"
+                         circle
+                         size="mini"/>
+            </div>
           </el-row>
         </el-col>
       </el-row>
-      <!--      <cropper :src="img" class="src-img"/>-->
     </div>
   </div>
 </template>
 
 <script>
+import VueCropper from 'vue-cropperjs'
+import 'cropperjs/dist/cropper.css'
+
 export default {
   name: 'Upload251',
+  components: {
+    VueCropper
+  },
   data () {
     return {
       api: 'https://4c7298efd5d44a09b1affdafcf7ee5d6.apigw.cn-north-4.huaweicloud.com/v1/infers/0d69f607-0105-4767-8157-38ac4a927bd0',
       token: '',
       showRes: false,
       img: null,
+      ImgList: [],
+      dialogVisible: false,
+      editImg: '',
       detectObjects: [
         {
           'box': [
@@ -96,23 +110,41 @@ export default {
       this.showRes = true
     },
     onSuccess (response, file, fileList) {
-      this.$refs.item[0].setCoordinates({
-        width: 200,
-        height: 200,
-        left: 0,
-        top: 0
-      }
-      )
+
+    },
+    getImage (index) {
+      return this.ImgList[index]
     },
     viewImage (file) {
       const reader = new FileReader()
       reader.onload = (e) => {
         this.img = e.target.result
+        this.$refs.cropper.replace(e.target.result)
       }
       reader.readAsDataURL(file)
     },
     searchImg (index) {
 
+    },
+    cropImage () {
+      this.$message({
+        type: 'success',
+        message: '保存图片',
+        duration: 1500,
+        center: true
+      })
+      this.ImgList[this.editImg] = this.$refs.edit.getCroppedCanvas().toDataURL()
+    },
+    editImage (obj, index) {
+      this.editImg = index
+      this.dialogVisible = true
+      this.$refs.edit.replace(this.img)
+      this.$refs.edit.setCropBoxData({
+        'left': 64.15997314453125,
+        'top': 22.560089111328125,
+        'width': 291.20001220703125,
+        'height': 224.63998413085938
+      })
     },
     cleanImg () {
       this.$message({
@@ -126,11 +158,36 @@ export default {
     }
   },
   mounted () {
-    // 获取token
     if (localStorage.token) {
       this.token = localStorage.token
     } else {
-      // this.token = ''
+      const body = require('@/assets/header.json')
+      console.log(body)
+      this.axios({
+        url: 'https://iam.cn-north-1.myhuaweicloud.com/v3/auth/tokens',
+        method: 'post',
+        data: {
+          'auth': {
+            'identity': {
+              'methods': ['password'],
+              'password': {
+                'user': {
+                  'name': 'getToken',
+                  'password': 'token123',
+                  'domain': {
+                    'name': 'ljhsdsg'
+                  }
+                }
+              }
+            },
+            'scope': {
+              'project': {
+                'name': 'cn-north-4'
+              }
+            }
+          }
+        }
+      })
     }
   }
 }
@@ -138,12 +195,12 @@ export default {
 
 <style scoped>
   .src-img {
-    height: 500px;
-    /*width: 100%;*/
+    height: 450px;
+    /*width: 80%;*/
   }
 
-  .detect-obj {
-    height: 250px;
+  .crop-img {
+    max-height: 300px;
   }
 
   .operation {

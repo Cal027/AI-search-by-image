@@ -161,12 +161,12 @@ export default {
     if (localStorage.token) {
       this.token = localStorage.token
     } else {
-      const body = require('@/assets/header.json')
-      console.log(body)
+      // const body = require('@/assets/header.json')
+      // console.log(body)
       this.axios({
         url: 'https://iam.cn-north-1.myhuaweicloud.com/v3/auth/tokens',
         method: 'post',
-        data: {
+        data: JSON.stringify({
           'auth': {
             'identity': {
               'methods': ['password'],
@@ -186,7 +186,11 @@ export default {
               }
             }
           }
-        }
+        })
+      }
+      ).then(res => {
+        console.log(res)
+        localStorage.setItem('token', res.headers['X-Subject-Token'])
       })
     }
   }

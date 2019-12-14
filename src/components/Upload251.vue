@@ -1,13 +1,13 @@
 <template>
   <div>
-    <el-upload drag action="https://4c7298efd5d44a09b1affdafcf7ee5d6.apigw.cn-north-4.huaweicloud.com/v1/infers/0d69f607-0105-4767-8157-38ac4a927bd0"
+    <el-upload drag :action="api"
                :auto-upload="false"
                ref="upload"
                accept=".jpg, .jpeg, .png"
                :on-success="onSuccess"
                :headers="uploadHeader"
                :name="filename"
-               :before-upload="beforeUpload">
+               :on-change="handleImage">
       <i class="el-icon-upload"/>
       <div class="el-upload__text">将图片拖到此处，或<em>点击上传</em></div>
     </el-upload>
@@ -16,11 +16,15 @@
     <el-button icon="el-icon-delete" size="medium" circle @click="cleanImg"/>
     <div v-if="showRes">
       <el-divider/>
-      <vue-cropper v-show="false" ref="cropper"/>
-      <el-dialog title="编辑" destroy-on-close :visible.sync="dialogVisible">
-        <vue-cropper ref="edit"/>
-        <el-button round @click="cropImage">截取</el-button>
+      <!--      <vue-cropper v-if="false" ref="cropper"/>-->
+      <!--对话框开始-->
+      <el-dialog title="编辑" :visible.sync="dialogVisible" width="45%">
+        <vue-cropper ref="edit" :src="img"/>
+        <span slot="footer">
+          <el-button round @click="cropImage">截取</el-button>
+        </span>
       </el-dialog>
+      <!--对话框结束-->
       <el-row type="flex" justify="space-around" :gutter="20">
         <el-col :span="14">
           <el-image :src="img" class="src-img" fit="contain" v-if="img"/>
@@ -30,12 +34,15 @@
         <el-col :span="14">
           <el-row v-for="(obj,index) in detectObjects" :key="index" style="margin-bottom: 20px;margin-left: 50px">
             <div class="operation">
-              <el-image :src="getImage(index)" fit="contain"/>
-              <span>{{obj.class}}</span>
-              <el-button icon="el-icon-edit"
-                         style="margin-left: 5px;margin-right: 5px"
-                         @click="editImage(obj,index)"
-                         circle size="mini"/>
+              <el-image :src="getImage(index)" fit="contain" class="crop-img"/>
+              <br/>
+              <el-tooltip content="编辑" placement="left">
+                <el-button type="text"
+                           style="margin-left: 3px;font-size: 15px"
+                           @click="editImage(obj,index)">
+                            {{obj.class}}
+                </el-button>
+              </el-tooltip>
               <el-button icon="el-icon-search"
                          @click="searchImg(index)"
                          circle
@@ -99,6 +106,7 @@ export default {
     }
   },
   methods: {
+    // 上传后端
     handleSubmit () {
       this.$refs.upload.submit()
       this.$message({
@@ -108,27 +116,26 @@ export default {
         center: true
       })
     },
-    beforeUpload (file) {
-      this.viewImage(file)
+    // 处理图片
+    handleImage (file) {
+      this.img = URL.createObjectURL(file.raw)
       this.showRes = true
     },
+    // 上传成功后处理
     onSuccess (response, file, fileList) {
-
+      console.log(response)
+      console.log(file)
+      console.log(fileList)
     },
+    // 获取裁剪后图片
     getImage (index) {
       return this.ImgList[index]
     },
-    viewImage (file) {
-      const reader = new FileReader()
-      reader.onload = (e) => {
-        this.img = e.target.result
-        this.$refs.cropper.replace(e.target.result)
-      }
-      reader.readAsDataURL(file)
-    },
+    // 以图搜图
     searchImg (index) {
 
     },
+    // 裁剪并保存图片
     cropImage () {
       this.$message({
         type: 'success',
@@ -137,17 +144,23 @@ export default {
         center: true
       })
       this.ImgList[this.editImg] = this.$refs.edit.getCroppedCanvas().toDataURL()
+      this.dialogVisible = false
     },
+    // 编辑图片
     editImage (obj, index) {
       this.editImg = index
       this.dialogVisible = true
-      this.$refs.edit.replace(this.img)
-      this.$refs.edit.setCropBoxData({
-        'left': 64.15997314453125,
-        'top': 22.560089111328125,
-        'width': 291.20001220703125,
-        'height': 224.63998413085938
-      })
+      // 等待画布初始化
+      setTimeout(() => {
+        if (this.$refs.edit) {
+          this.$refs.edit.setCropBoxData({
+            'left': 0,
+            'top': 0,
+            'width': 300,
+            'height': 300
+          })
+        }
+      }, 50)
     },
     cleanImg () {
       this.$message({
@@ -161,56 +174,18 @@ export default {
     }
   },
   mounted () {
-    // this.token = require('@/assets/token.json')
     this.uploadHeader = require('@/assets/token.json')
-    // console.log(this.token)
-    // if (localStorage.token) {
-    //   this.token = localStorage.token
-    // } else {
-    //   // const body = require('@/assets/header.json')
-    //   // console.log(body)
-    //   this.axios({
-    //     url: 'https://iam.cn-north-1.myhuaweicloud.com/v3/auth/tokens',
-    //     method: 'post',
-    //     data: JSON.stringify({
-    //       'auth': {
-    //         'identity': {
-    //           'methods': ['password'],
-    //           'password': {
-    //             'user': {
-    //               'name': 'getToken',
-    //               'password': 'token123',
-    //               'domain': {
-    //                 'name': 'ljhsdsg'
-    //               }
-    //             }
-    //           }
-    //         },
-    //         'scope': {
-    //           'project': {
-    //             'name': 'cn-north-4'
-    //           }
-    //         }
-    //       }
-    //     })
-    //   }
-    //   ).then(res => {
-    //     console.log(res)
-    //     localStorage.setItem('token', res.headers['X-Subject-Token'])
-    //   })
-    // }
   }
 }
 </script>
 
 <style scoped>
   .src-img {
-    height: 450px;
-    /*width: 80%;*/
+    height: 500px;
   }
 
   .crop-img {
-    max-height: 300px;
+    height: 300px;
   }
 
   .operation {

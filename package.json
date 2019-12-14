@@ -10,7 +10,8 @@
   "dependencies": {
     "core-js": "^3.4.3",
     "element-ui": "^2.13.0",
-    "vue": "^2.6.10"
+    "vue": "^2.6.10",
+    "vue-advanced-cropper": "^0.14.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.1.0",

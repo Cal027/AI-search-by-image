@@ -5,7 +5,6 @@
                ref="upload"
                accept=".jpg, .jpeg, .png"
                :on-success="onSuccess"
-               :headers="uploadHeader"
                :name="filename"
                :on-change="handleImage">
       <i class="el-icon-upload"/>
@@ -16,10 +15,20 @@
     <el-button icon="el-icon-delete" size="medium" circle @click="cleanImg"/>
     <div v-if="showRes">
       <el-divider/>
-      <!--      <vue-cropper v-if="false" ref="cropper"/>-->
+      <section class="cropper" style="position:absolute;left:-99999px;top:-90999px;">
+        <vue-cropper ref="cropper" :src="img"
+                     :zoomable="false"
+                     :scalable="false"
+                     :movable="false"
+                     :zoomOnWheel="false"/>
+      </section>
       <!--对话框开始-->
       <el-dialog title="编辑" :visible.sync="dialogVisible" width="45%">
-        <vue-cropper ref="edit" :src="img"/>
+        <vue-cropper ref="edit" :src="img"
+                     :zoomable="false"
+                     :scalable="false"
+                     :movable="false"
+                     :zoomOnWheel="false"/>
         <span slot="footer">
           <el-button round @click="cropImage">截取</el-button>
         </span>
@@ -31,7 +40,7 @@
           <br/>
           <span>原图片</span>
         </el-col>
-        <el-col :span="14">
+        <el-col :span="14" v-if="ImgList.length!==0">
           <el-row v-for="(obj,index) in detectObjects" :key="index" style="margin-bottom: 20px;margin-left: 50px">
             <div class="operation">
               <el-image :src="getImage(index)" fit="contain" class="crop-img"/>
@@ -40,7 +49,7 @@
                 <el-button type="text"
                            style="margin-left: 3px;font-size: 15px"
                            @click="editImage(obj,index)">
-                            {{obj.class}}
+                  {{obj.class}}
                 </el-button>
               </el-tooltip>
               <el-button icon="el-icon-search"
@@ -66,43 +75,15 @@ export default {
   },
   data () {
     return {
-      api: 'https://4c7298efd5d44a09b1affdafcf7ee5d6.apigw.cn-north-4.huaweicloud.com/v1/infers/0d69f607-0105-4767-8157-38ac4a927bd0',
+      api: 'http://10.20.184.64:8000/upload/',
       filename: 'images',
-      uploadHeader: {},
       showRes: false,
       img: null,
       ImgList: [],
       dialogVisible: false,
       editImg: '',
-      detectObjects: [
-        {
-          'box': [
-            90,
-            270,
-            382,
-            106
-          ],
-          'class': 'person'
-        },
-        {
-          'box': [
-            15,
-            226,
-            50,
-            242
-          ],
-          'class': 'person'
-        },
-        {
-          'box': [
-            45,
-            126,
-            50,
-            242
-          ],
-          'class': 'person'
-        }
-      ]
+      detectObjects: [],
+      box: []
     }
   },
   methods: {
@@ -122,10 +103,30 @@ export default {
       this.showRes = true
     },
     // 上传成功后处理
-    onSuccess (response, file, fileList) {
-      console.log(response)
-      console.log(file)
-      console.log(fileList)
+    onSuccess (response) {
+      this.detectObjects = JSON.parse(response)
+      if (this.detectObjects.length === 0) {
+        this.$message.error('未检测到目标')
+        return
+      }
+      console.log(this.detectObjects)
+      for (let i = 0; i < this.detectObjects.length; i++) {
+        let top = this.detectObjects[i].box[0]
+        let left = this.detectObjects[i].box[2]
+        let height = this.detectObjects[i].box[1] - top
+        let width = this.detectObjects[i].box[3] - left
+        let tmpBox = {
+          'left': left,
+          'top': top,
+          'width': width,
+          'height': height
+        }
+        this.box.push(tmpBox)
+        this.$refs.cropper.setCropBoxData(tmpBox)
+        console.log(this.$refs.cropper.getCropBoxData())
+        this.ImgList[i] = this.$refs.cropper.getCroppedCanvas().toDataURL()
+      }
+      // console.log(this.box)
     },
     // 获取裁剪后图片
     getImage (index) {
@@ -144,6 +145,7 @@ export default {
         center: true
       })
       this.ImgList[this.editImg] = this.$refs.edit.getCroppedCanvas().toDataURL()
+      console.log(this.$refs.edit.getCropBoxData())
       this.dialogVisible = false
     },
     // 编辑图片
@@ -153,14 +155,9 @@ export default {
       // 等待画布初始化
       setTimeout(() => {
         if (this.$refs.edit) {
-          this.$refs.edit.setCropBoxData({
-            'left': 0,
-            'top': 0,
-            'width': 300,
-            'height': 300
-          })
+          this.$refs.edit.setCropBoxData(this.box[index])
         }
-      }, 50)
+      }, 100)
     },
     cleanImg () {
       this.$message({
@@ -170,11 +167,11 @@ export default {
         center: true
       })
       this.img = null
+      this.ImgList = []
       this.showRes = false
     }
   },
   mounted () {
-    this.uploadHeader = require('@/assets/token.json')
   }
 }
 </script>
@@ -190,5 +187,9 @@ export default {
 
   .operation {
     margin-top: 5px;
+  }
+
+  .cropper {
+    width: 614px;
   }
 </style>

@@ -15,7 +15,7 @@
     <el-button icon="el-icon-delete" size="medium" circle @click="cleanImg"/>
     <div v-if="showRes">
       <el-divider/>
-      <section class="cropper" style="position:absolute;left:-99999px;top:-90999px;">
+      <section class="cropper">
         <vue-cropper ref="cropper" :src="img"
                      :zoomable="false"
                      :scalable="false"
@@ -23,7 +23,7 @@
                      :zoomOnWheel="false"/>
       </section>
       <!--对话框开始-->
-      <el-dialog title="编辑" :visible.sync="dialogVisible" width="45%">
+      <el-dialog title="编辑" :visible.sync="dialogVisible">
         <vue-cropper ref="edit" :src="img"
                      :zoomable="false"
                      :scalable="false"
@@ -36,14 +36,15 @@
       <!--对话框结束-->
       <el-row type="flex" justify="space-around" :gutter="20">
         <el-col :span="14">
-          <el-image :src="img" class="src-img" fit="contain" v-if="img"/>
+          <el-image :src="img" class="src-img" fit="scale-down" v-if="img"/>
           <br/>
           <span>原图片</span>
         </el-col>
-        <el-col :span="14" v-if="ImgList.length!==0">
+        <el-col :span="3"/>
+        <el-col :span="8" v-if="ImgList.length!==0">
           <el-row v-for="(obj,index) in detectObjects" :key="index" style="margin-bottom: 20px;margin-left: 50px">
-            <div class="operation">
-              <el-image :src="getImage(index)" fit="contain" class="crop-img"/>
+            <div class="result">
+              <el-image :src="getImage(index)" fit="contain" class="result-image"/>
               <br/>
               <el-tooltip content="编辑" placement="left">
                 <el-button type="text"
@@ -59,6 +60,7 @@
             </div>
           </el-row>
         </el-col>
+        <el-col :span="3"/>
       </el-row>
     </div>
   </div>
@@ -83,7 +85,7 @@ export default {
       dialogVisible: false,
       editImg: '',
       detectObjects: [],
-      box: []
+      cropBox: []
     }
   },
   methods: {
@@ -99,11 +101,17 @@ export default {
     },
     // 处理图片
     handleImage (file) {
-      this.img = URL.createObjectURL(file.raw)
+      const img = URL.createObjectURL(file.raw)
+      this.img = img
       this.showRes = true
+      if (this.$refs.cropper) {
+        this.$refs.cropper.replace(img)
+      }
     },
     // 上传成功后处理
     onSuccess (response) {
+      this.ImgList = []
+      this.cropBox = []
       this.detectObjects = JSON.parse(response)
       if (this.detectObjects.length === 0) {
         this.$message.error('未检测到目标')
@@ -121,11 +129,11 @@ export default {
           'width': width,
           'height': height
         }
-        console.log(tmpBox)
-        this.box.push(tmpBox)
+        // console.log(tmpBox)
+        this.cropBox.push(tmpBox)
         this.$refs.cropper.setCropBoxData(tmpBox)
-        console.log(this.$refs.cropper.getCropBoxData())
-        this.ImgList[i] = this.$refs.cropper.getCroppedCanvas().toDataURL()
+        // console.log(this.$refs.cropper.getCropBoxData())
+        this.ImgList.push(this.$refs.cropper.getCroppedCanvas().toDataURL())
       }
       // console.log(this.box)
     },
@@ -146,7 +154,7 @@ export default {
         center: true
       })
       this.ImgList[this.editImg] = this.$refs.edit.getCroppedCanvas().toDataURL()
-      console.log(this.$refs.edit.getCropBoxData())
+      // console.log(this.$refs.edit.getCropBoxData())
       this.dialogVisible = false
     },
     // 编辑图片
@@ -156,7 +164,7 @@ export default {
       // 等待画布初始化
       setTimeout(() => {
         if (this.$refs.edit) {
-          this.$refs.edit.setCropBoxData(this.box[index])
+          this.$refs.edit.setCropBoxData(this.cropBox[index])
         }
       }, 100)
     },
@@ -182,15 +190,19 @@ export default {
     height: 500px;
   }
 
-  .crop-img {
-    height: 300px;
+  .result-image {
+    min-width: 350px;
+    height: 250px;
   }
 
-  .operation {
+  .result {
     margin-top: 5px;
   }
 
   .cropper {
-    width: 614px;
+    max-width: 100%;
+    position: absolute;
+    left: -99999px;
+    top: -90999px;
   }
 </style>

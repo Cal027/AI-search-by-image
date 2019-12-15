@@ -5,7 +5,7 @@
                ref="upload"
                accept=".jpg, .jpeg, .png"
                :on-success="onSuccess"
-               :name="filename"
+               :on-remove="cleanImg"
                :on-change="handleImage">
       <i class="el-icon-upload"/>
       <div class="el-upload__text">将图片拖到此处，或<em>点击上传</em></div>
@@ -24,14 +24,9 @@
       </section>
       <!--对话框开始-->
       <el-dialog title="编辑" :visible.sync="dialogVisible">
-        <vue-cropper ref="edit" :src="img"
-                     :zoomable="false"
-                     :scalable="false"
-                     :movable="false"
-                     :zoomOnWheel="false"
-        />
+        <vue-cropper ref="edit" :src="img"/>
         <span slot="footer">
-          <el-button round @click="cropImage">截取</el-button>
+          <el-button round @click="cropImage">截取并搜索</el-button>
         </span>
       </el-dialog>
       <!--对话框结束-->
@@ -40,6 +35,8 @@
           <img :src="img" class="src-img" v-if="img" alt="原图片"/>
           <br/>
           <span style="font-weight: 500;font-size: 22px">原图片</span>
+          <br/>
+          <el-button icon="el-icon-edit" round size="small" @click="editImage">自定义</el-button>
         </el-col>
         <el-col :span="3"/>
         <el-col :span="8" v-if="ImgList.length!==0">
@@ -49,13 +46,9 @@
                 <img :src="getImage(index)" class="result-image" :alt="obj.class"/>
               </el-badge>
               <br/>
-              <el-tooltip content="编辑" placement="left">
-                <el-button type="text"
-                           style="margin-left: 3px;font-size: 15px"
-                           @click="editImage(obj,index)">
-                  {{obj.class}}
-                </el-button>
-              </el-tooltip>
+              <em>
+                {{obj.class}}
+              </em>
               <el-button icon="el-icon-search"
                          @click="searchImg(index)"
                          circle
@@ -82,14 +75,11 @@ export default {
   data () {
     return {
       api: 'http://10.20.184.64:8000/upload/',
-      filename: 'images',
       showRes: false,
       img: null,
       ImgList: [],
       dialogVisible: false,
-      editImg: '',
-      detectObjects: [],
-      cropBox: []
+      detectObjects: []
     }
   },
   methods: {
@@ -115,7 +105,6 @@ export default {
     // 上传成功后处理
     onSuccess (response) {
       this.ImgList = []
-      this.cropBox = []
       this.detectObjects = JSON.parse(response)
       if (this.detectObjects.length === 0) {
         this.$message.error('未检测到目标')
@@ -127,22 +116,20 @@ export default {
         duration: 1500,
         center: true
       })
-      console.log(this.detectObjects)
+      this.cropResultImage()
+    },
+    cropResultImage () {
       for (let i = 0; i < this.detectObjects.length; i++) {
         let left = Math.min(this.detectObjects[i].box[2], this.detectObjects[i].box[3])
         let top = Math.min(this.detectObjects[i].box[0], this.detectObjects[i].box[1])
         let height = Math.abs(this.detectObjects[i].box[0] - this.detectObjects[i].box[1])
         let width = Math.abs(this.detectObjects[i].box[2] - this.detectObjects[i].box[3])
-        let tmpBox = {
+        this.$refs.cropper.setCropBoxData({
           'left': left,
           'top': top,
           'width': width,
           'height': height
-        }
-        // console.log(tmpBox)
-        this.cropBox.push(tmpBox)
-        this.$refs.cropper.setCropBoxData(tmpBox)
-        // console.log(this.$refs.cropper.getCropBoxData())
+        })
         this.ImgList.push(this.$refs.cropper.getCroppedCanvas().toDataURL())
       }
     },
@@ -154,6 +141,7 @@ export default {
     searchImg (index) {
       const data = new FormData()
       data.append('encoded_image', this.dataURLtoBlob(this.getImage(index)), 'image.png')
+      let loading = this.$loading()
       fetch('https://www.google.com/searchbyimage/upload', {
         referrer: '',
         mode: 'cors',
@@ -161,9 +149,8 @@ export default {
         body: data
       }).then(data => {
         window.open(data.url)
+        loading.close()
       })
-      // console.log(rsp)
-      // window.location.replace(rsp.url)
     },
     dataURLtoBlob (dataurl) {
       var arr = dataurl.split(',')
@@ -181,23 +168,17 @@ export default {
     cropImage () {
       this.$message({
         type: 'success',
-        message: '保存图片',
+        message: '保存并搜索图片',
         duration: 1500,
         center: true
       })
-      this.ImgList[this.editImg] = this.$refs.edit.getCroppedCanvas().toDataURL()
+      this.ImgList.push(this.$refs.edit.getCroppedCanvas().toDataURL())
+      this.searchImg(this.ImgList.length - 1)
       this.dialogVisible = false
     },
     // 编辑图片
-    editImage (obj, index) {
-      this.editImg = index
+    editImage () {
       this.dialogVisible = true
-      // 等待画布初始化
-      setTimeout(() => {
-        if (this.$refs.edit) {
-          this.$refs.edit.setCropBoxData(this.cropBox[index])
-        }
-      }, 100)
     },
     cleanImg () {
       this.$message({
@@ -218,7 +199,7 @@ export default {
 
 <style scoped>
   .src-img {
-    max-height: 500px;
+    max-height: 450px;
     object-fit: scale-down;
   }
 
@@ -242,8 +223,8 @@ export default {
 
 <style lang="less">
   .result {
-    .el-divider--horizontal{
-      margin: 5px 0!important;
+    .el-divider--horizontal {
+      margin: 5px 0 !important;
     }
   }
 </style>

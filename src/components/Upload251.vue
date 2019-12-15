@@ -1,20 +1,22 @@
 <template>
-  <div>
-    <el-upload drag
-               :action="api"
-               :auto-upload="true"
-               ref="upload"
-               accept=".jpg, .jpeg, .png"
-               :on-success="onSuccess"
-               :name="filename"
-               :before-upload="handleSubmit"
-               :on-remove="cleanImg"
-               :on-change="handleImage">
-      <i class="el-icon-upload"/>
-      <div class="el-upload__text">将图片拖到此处，或<em>点击上传</em></div>
-    </el-upload>
-    <br/>
-    <el-button icon="el-icon-delete" size="medium" round @click="cleanImg">清空</el-button>
+  <div class="container">
+    <div class="card">
+      <el-upload drag
+                 :action="api"
+                 :auto-upload="true"
+                 ref="upload"
+                 accept=".jpg, .jpeg, .png"
+                 :on-success="onSuccess"
+                 :name="filename"
+                 :before-upload="handleSubmit"
+                 :on-remove="cleanImg"
+                 :on-change="handleImage">
+        <i class="el-icon-upload"/>
+        <div class="el-upload__text">将图片拖到此处，或<em>点击上传</em></div>
+      </el-upload>
+      <br/>
+      <el-button icon="el-icon-delete" size="medium" round @click="cleanImg">清空</el-button>
+    </div>
     <div v-if="showRes">
       <el-divider/>
       <section class="cropper">
@@ -198,6 +200,19 @@ export default {
 </script>
 
 <style scoped>
+  .container{
+    margin-top: -130px;
+  }
+  .card {
+    background-color: #FFFFFF;
+    position: relative;
+    width: 400px;
+    margin: 0 auto;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  }
+
   .src-img {
     max-height: 450px;
     object-fit: scale-down;

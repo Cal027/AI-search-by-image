@@ -111,16 +111,17 @@ export default {
       }
       console.log(this.detectObjects)
       for (let i = 0; i < this.detectObjects.length; i++) {
-        let top = this.detectObjects[i].box[0]
-        let left = this.detectObjects[i].box[2]
-        let height = this.detectObjects[i].box[1] - top
-        let width = this.detectObjects[i].box[3] - left
+        let left = Math.min(this.detectObjects[i].box[2], this.detectObjects[i].box[3])
+        let top = Math.min(this.detectObjects[i].box[0], this.detectObjects[i].box[1])
+        let height = Math.abs(this.detectObjects[i].box[0] - this.detectObjects[i].box[1])
+        let width = Math.abs(this.detectObjects[i].box[2] - this.detectObjects[i].box[3])
         let tmpBox = {
           'left': left,
           'top': top,
           'width': width,
           'height': height
         }
+        console.log(tmpBox)
         this.box.push(tmpBox)
         this.$refs.cropper.setCropBoxData(tmpBox)
         console.log(this.$refs.cropper.getCropBoxData())

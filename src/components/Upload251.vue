@@ -37,7 +37,7 @@
       <!--对话框结束-->
       <el-row type="flex" justify="space-around" :gutter="20">
         <el-col :span="14">
-          <el-image :src="img" class="src-img" fit="scale-down" v-if="img"/>
+          <img :src="img" class="src-img" v-if="img" alt="原图片"/>
           <br/>
           <span style="font-weight: 500;font-size: 22px">原图片</span>
         </el-col>
@@ -46,7 +46,7 @@
           <el-row v-for="(obj,index) in detectObjects" :key="index" style="margin-bottom: 20px;margin-left: 50px">
             <div class="result">
               <el-badge :value="obj.confidence.toFixed(3)" type="success">
-                <el-image :src="getImage(index)" fit="contain" class="result-image"/>
+                <img :src="getImage(index)" class="result-image" :alt="obj.class"/>
               </el-badge>
               <br/>
               <el-tooltip content="编辑" placement="left">
@@ -60,6 +60,7 @@
                          @click="searchImg(index)"
                          circle
                          size="mini"/>
+              <el-divider/>
             </div>
           </el-row>
         </el-col>
@@ -194,12 +195,14 @@ export default {
 
 <style scoped>
   .src-img {
-    height: 400px;
+    max-height: 500px;
+    object-fit: scale-down;
   }
 
   .result-image {
     min-width: 330px;
     height: 220px;
+    object-fit: contain;
   }
 
   .result {
@@ -211,5 +214,13 @@ export default {
     position: absolute;
     left: -99999px;
     top: -90999px;
+  }
+</style>
+
+<style lang="less">
+  .result {
+    .el-divider--horizontal{
+      margin: 5px 0!important;
+    }
   }
 </style>

@@ -1,18 +1,20 @@
 <template>
   <div>
-    <el-upload drag :action="api"
-               :auto-upload="false"
+    <el-upload drag
+               :action="api"
+               :auto-upload="true"
                ref="upload"
                accept=".jpg, .jpeg, .png"
                :on-success="onSuccess"
+               :name="filename"
+               :before-upload="handleSubmit"
                :on-remove="cleanImg"
                :on-change="handleImage">
       <i class="el-icon-upload"/>
       <div class="el-upload__text">将图片拖到此处，或<em>点击上传</em></div>
     </el-upload>
     <br/>
-    <el-button icon="el-icon-upload2" size="medium" round @click="handleSubmit">上传</el-button>
-    <el-button icon="el-icon-delete" size="medium" circle @click="cleanImg"/>
+    <el-button icon="el-icon-delete" size="medium" round @click="cleanImg">清空</el-button>
     <div v-if="showRes">
       <el-divider/>
       <section class="cropper">
@@ -24,7 +26,7 @@
       </section>
       <!--对话框开始-->
       <el-dialog title="编辑" :visible.sync="dialogVisible">
-        <vue-cropper ref="edit" :src="img"/>
+        <vue-cropper ref="edit" :src="img" :imgStyle="{height:'500px'}"/>
         <span slot="footer">
           <el-button round @click="cropImage">截取并搜索</el-button>
         </span>
@@ -76,6 +78,7 @@ export default {
     return {
       api: 'http://10.20.184.64:8000/upload/',
       showRes: false,
+      filename: 'images',
       img: null,
       ImgList: [],
       dialogVisible: false,
@@ -85,7 +88,7 @@ export default {
   methods: {
     // 上传后端
     handleSubmit () {
-      this.$refs.upload.submit()
+      // this.$refs.upload.submit()
       this.$message({
         type: 'success',
         message: '上传到华为ModelArt',
@@ -163,7 +166,6 @@ export default {
       }
       return new Blob([u8arr], { type: mime })
     },
-
     // 裁剪并保存图片
     cropImage () {
       this.$message({
@@ -191,8 +193,6 @@ export default {
       this.ImgList = []
       this.showRes = false
     }
-  },
-  mounted () {
   }
 }
 </script>

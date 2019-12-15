@@ -28,7 +28,8 @@
                      :zoomable="false"
                      :scalable="false"
                      :movable="false"
-                     :zoomOnWheel="false"/>
+                     :zoomOnWheel="false"
+        />
         <span slot="footer">
           <el-button round @click="cropImage">截取</el-button>
         </span>
@@ -38,13 +39,15 @@
         <el-col :span="14">
           <el-image :src="img" class="src-img" fit="scale-down" v-if="img"/>
           <br/>
-          <span>原图片</span>
+          <span style="font-weight: 500;font-size: 22px">原图片</span>
         </el-col>
         <el-col :span="3"/>
         <el-col :span="8" v-if="ImgList.length!==0">
           <el-row v-for="(obj,index) in detectObjects" :key="index" style="margin-bottom: 20px;margin-left: 50px">
             <div class="result">
-              <el-image :src="getImage(index)" fit="contain" class="result-image"/>
+              <el-badge :value="obj.confidence.toFixed(3)" type="success">
+                <el-image :src="getImage(index)" fit="contain" class="result-image"/>
+              </el-badge>
               <br/>
               <el-tooltip content="编辑" placement="left">
                 <el-button type="text"
@@ -117,6 +120,12 @@ export default {
         this.$message.error('未检测到目标')
         return
       }
+      this.$message({
+        type: 'success',
+        message: `成功检测到${this.detectObjects.length}个目标`,
+        duration: 1500,
+        center: true
+      })
       console.log(this.detectObjects)
       for (let i = 0; i < this.detectObjects.length; i++) {
         let left = Math.min(this.detectObjects[i].box[2], this.detectObjects[i].box[3])
@@ -135,7 +144,6 @@ export default {
         // console.log(this.$refs.cropper.getCropBoxData())
         this.ImgList.push(this.$refs.cropper.getCroppedCanvas().toDataURL())
       }
-      // console.log(this.box)
     },
     // 获取裁剪后图片
     getImage (index) {
@@ -154,7 +162,6 @@ export default {
         center: true
       })
       this.ImgList[this.editImg] = this.$refs.edit.getCroppedCanvas().toDataURL()
-      // console.log(this.$refs.edit.getCropBoxData())
       this.dialogVisible = false
     },
     // 编辑图片
@@ -187,12 +194,12 @@ export default {
 
 <style scoped>
   .src-img {
-    height: 500px;
+    height: 400px;
   }
 
   .result-image {
-    min-width: 350px;
-    height: 250px;
+    min-width: 330px;
+    height: 220px;
   }
 
   .result {

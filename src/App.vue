@@ -1,17 +1,17 @@
 <template>
   <div id="app">
     <img alt="logo" src="./assets/icon.png" class="logo"/>
-    <Upload251/>
+    <YoloUpload/>
   </div>
 </template>
 
 <script>
 
-import Upload251 from './components/Upload251'
+import YoloUpload from './components/YoloUpload'
 
 export default {
   name: 'app',
-  components: { Upload251 },
+  components: { YoloUpload },
   data () {
     return {}
   }

@@ -72,7 +72,7 @@ import VueCropper from 'vue-cropperjs'
 import 'cropperjs/dist/cropper.css'
 
 export default {
-  name: 'Upload251',
+  name: 'YoloUpload',
   components: {
     VueCropper
   },

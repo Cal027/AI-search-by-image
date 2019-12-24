@@ -78,7 +78,7 @@ export default {
   },
   data () {
     return {
-      api: 'http://10.20.184.64:8000/upload/',
+      api: 'https://snail.leeeung.com:8301/upload/',
       showRes: false,
       filename: 'images',
       img: null,

@@ -19,7 +19,7 @@
       <el-button icon="el-icon-delete" size="medium" round @click="cleanImg">清空</el-button>
       <el-button v-show="hasResult" size="medium" round @click="showDialog = true">上次结果</el-button>
     </div>
-    <el-dialog fullscreen :visible.sync="showDialog" center title="yolo检测结果" v-if="showRes">
+    <el-dialog fullscreen :visible.sync="showDialog" center title="YoLo检测结果" v-if="showRes">
       <section class="cropper">
         <vue-cropper ref="cropper" :src="img"
                      :zoomable="false"
@@ -121,7 +121,7 @@ export default {
       this.$notify({
         type: 'success',
         title: 'YoLo检测成功',
-        message: `检测到${this.detectObjects.length}个目标`,
+        message: `检测到${this.detectObjects.length}个目标,按ESC或右上角按钮退出`,
         position: 'top-left',
         duration: 8000
       })

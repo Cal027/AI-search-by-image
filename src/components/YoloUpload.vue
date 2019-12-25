@@ -8,6 +8,7 @@
                  accept=".jpg, .jpeg, .png"
                  :on-success="onSuccess"
                  :name="filename"
+                 :multiple=false
                  :before-upload="handleSubmit"
                  :on-remove="cleanImg"
                  :on-change="handleImage">

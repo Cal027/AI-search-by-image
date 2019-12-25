@@ -8,18 +8,18 @@
                  accept=".jpg, .jpeg, .png"
                  :on-success="onSuccess"
                  :name="filename"
+                 :show-file-list="false"
                  :multiple=false
                  :before-upload="handleSubmit"
-                 :on-remove="cleanImg"
                  :on-change="handleImage">
         <i class="el-icon-upload"/>
         <div class="el-upload__text">将图片拖到此处，或<em>点击上传</em></div>
       </el-upload>
       <br/>
       <el-button icon="el-icon-delete" size="medium" round @click="cleanImg">清空</el-button>
+      <el-button v-show="hasResult" size="medium" round @click="showDialog = true">上次结果</el-button>
     </div>
-    <div v-if="showRes">
-      <el-divider/>
+    <el-dialog fullscreen :visible.sync="showDialog" center title="yolo检测结果" v-if="showRes">
       <section class="cropper">
         <vue-cropper ref="cropper" :src="img"
                      :zoomable="false"
@@ -28,7 +28,7 @@
                      :zoomOnWheel="false"/>
       </section>
       <!--对话框开始-->
-      <el-dialog title="编辑" :visible.sync="dialogVisible">
+      <el-dialog title="编辑" :visible.sync="dialogVisible" append-to-body>
         <vue-cropper ref="edit" :src="img" :imgStyle="{height:'500px'}"/>
         <span slot="footer">
           <el-button round @click="cropImage">截取并搜索</el-button>
@@ -36,15 +36,15 @@
       </el-dialog>
       <!--对话框结束-->
       <el-row type="flex" justify="space-around" :gutter="20">
-        <el-col :span="14">
-          <img :src="img" class="src-img" v-if="img" alt="原图片"/>
+        <el-col :span="14" style="text-align: center">
+          <img :src="img" class="src-img" v-if="img" alt="原图"/>
           <br/>
-          <span style="font-weight: 500;font-size: 22px">原图片</span>
+          <span style="font-weight: 500;font-size: 22px">原图</span>
           <br/>
           <el-button icon="el-icon-edit" round size="small" @click="editImage">自定义</el-button>
         </el-col>
         <el-col :span="3"/>
-        <el-col :span="8" v-if="ImgList.length!==0">
+        <el-col :span="8" v-if="ImgList.length!==0" style="text-align: center">
           <el-row v-for="(obj,index) in detectObjects" :key="index" style="margin-bottom: 20px;margin-left: 50px">
             <div class="result">
               <el-badge :value="obj.confidence.toFixed(3)" type="success">
@@ -54,17 +54,16 @@
               <em>
                 {{obj.class}}
               </em>
-              <el-button icon="el-icon-search"
-                         @click="searchImg(index)"
-                         circle
-                         size="mini"/>
+              <el-button icon="el-icon-search" @click="searchImg(index)"
+                         circle size="mini"/>
               <el-divider/>
             </div>
           </el-row>
         </el-col>
         <el-col :span="3"/>
       </el-row>
-    </div>
+      <!--      </div>-->
+    </el-dialog>
   </div>
 </template>
 
@@ -84,14 +83,16 @@ export default {
       filename: 'images',
       img: null,
       ImgList: [],
+      showDialog: false,
       dialogVisible: false,
+      hasResult: false,
       detectObjects: []
     }
   },
   methods: {
     // 上传后端
     handleSubmit () {
-      // this.$refs.upload.submit()
+      this.ImgList = []
       this.$message({
         type: 'success',
         message: '上传到华为ModelArt',
@@ -104,23 +105,25 @@ export default {
       const img = URL.createObjectURL(file.raw)
       this.img = img
       this.showRes = true
+      this.showDialog = true
       if (this.$refs.cropper) {
         this.$refs.cropper.replace(img)
       }
     },
     // 上传成功后处理
     onSuccess (response) {
-      this.ImgList = []
       this.detectObjects = JSON.parse(response)
       if (this.detectObjects.length === 0) {
         this.$message.error('未检测到目标')
         return
       }
-      this.$message({
+      this.hasResult = true
+      this.$notify({
         type: 'success',
-        message: `成功检测到${this.detectObjects.length}个目标`,
-        duration: 1500,
-        center: true
+        title: 'YoLo检测成功',
+        message: `检测到${this.detectObjects.length}个目标`,
+        position: 'top-left',
+        duration: 8000
       })
       this.cropResultImage()
     },
@@ -156,14 +159,17 @@ export default {
       }).then(data => {
         window.open(data.url)
         loading.close()
+      }).catch(() => {
+        this.$message.error('通过Google搜图失败，请检查网络设置')
+        loading.close()
       })
     },
     dataURLtoBlob (dataurl) {
-      var arr = dataurl.split(',')
-      var mime = arr[0].match(/:(.*?);/)[1]
-      var bstr = atob(arr[1])
-      var n = bstr.length
-      var u8arr = new Uint8Array(n)
+      let arr = dataurl.split(',')
+      let mime = arr[0].match(/:(.*?);/)[1]
+      let bstr = atob(arr[1])
+      let n = bstr.length
+      let u8arr = new Uint8Array(n)
       while (n--) {
         u8arr[n] = bstr.charCodeAt(n)
       }
@@ -188,12 +194,12 @@ export default {
     cleanImg () {
       this.$message({
         type: 'success',
-        message: '清除图片',
+        message: '清空结果',
         duration: 1500,
         center: true
       })
+      this.hasResult = false
       this.img = null
-      this.ImgList = []
       this.showRes = false
     }
   }
@@ -201,9 +207,10 @@ export default {
 </script>
 
 <style scoped>
-  .container{
+  .container {
     margin-top: -130px;
   }
+
   .card {
     background-color: #FFFFFF;
     position: relative;

@@ -28,10 +28,6 @@ export default {
     color: #2c3e50;
 
     .logo {
-      /*border-width: 3px;*/
-      /*border-color: #2D4F89;*/
-      /*border-style: solid;*/
-      /*border-radius: 15px;*/
       padding-bottom: 100px;
       height: 300px;
       width: 100%;

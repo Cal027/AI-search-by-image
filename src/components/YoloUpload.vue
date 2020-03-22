@@ -62,7 +62,6 @@
         </el-col>
         <el-col :span="3"/>
       </el-row>
-      <!--      </div>-->
     </el-dialog>
   </div>
 </template>
@@ -78,7 +77,7 @@ export default {
   },
   data () {
     return {
-      api: 'https://snail.leeeung.com:8302/upload/',
+      api: 'https://www.fastmock.site/mock/53be894d4cacaa6d7b1013e3f7451824/yolo/upload',
       showRes: false,
       filename: 'images',
       img: null,
@@ -112,7 +111,13 @@ export default {
     },
     // 上传成功后处理
     onSuccess (response) {
-      this.detectObjects = JSON.parse(response)
+      console.log(typeof response)
+      if (typeof response === 'string') {
+        this.detectObjects = JSON.parse(response)
+      } else {
+        this.detectObjects = response.data
+      }
+      console.log(this.detectObjects)
       if (this.detectObjects.length === 0) {
         this.$message.error('未检测到目标')
         return
@@ -127,6 +132,7 @@ export default {
       })
       this.cropResultImage()
     },
+    // 裁剪图片
     cropResultImage () {
       for (let i = 0; i < this.detectObjects.length; i++) {
         let left = Math.min(this.detectObjects[i].box[2], this.detectObjects[i].box[3])
